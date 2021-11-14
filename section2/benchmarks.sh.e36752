@@ -1,0 +1,6 @@
+loading dependency gnu/9.3.0
+loading dependency numactl/2.0.13
+loading dependency hwloc/2.2.0
+sed: can't read  : No such file or directory
+sed: couldn't flush stdout: Broken pipe
+rm: cannot remove ‘benchmarks.sh.*’: No such file or directory
