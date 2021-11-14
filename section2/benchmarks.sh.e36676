@@ -1,7 +1,0 @@
-loading dependency gnu/9.3.0
-loading dependency numactl/2.0.13
-loading dependency hwloc/2.2.0
-/var/spool/pbs/mom_priv/jobs/36676.login.hpc.SC: line 15:  grep -v: command not found
-/var/spool/pbs/mom_priv/jobs/36676.login.hpc.SC: line 15:  grep -v: command not found
-/var/spool/pbs/mom_priv/jobs/36676.login.hpc.SC: line 15:   tr -s: command not found
-rm: cannot remove ‘/u/dssc/elena/hpc_assignment1/section2/benchmarks.sh.*’: No such file or directory
