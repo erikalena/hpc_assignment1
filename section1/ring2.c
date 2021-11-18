@@ -7,24 +7,25 @@ left and right directions */
 #define niterations 100
 
 int main(int argc, char* argv[]) {
-  int rank, size, true = 1;
+  int rank, size, reorder, true = 1;
   int root = 0;
   int left, right;
   
   MPI_Init(&argc, &argv);
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   MPI_Comm_size(MPI_COMM_WORLD, &size);
+
   
-  MPI_Status status;
+  MPI_Status lstatus, rstatus; // status of msgs received from left and from right respectively
   MPI_Comm ring_comm;
   /* create 1D periodic array */
   MPI_Cart_create(MPI_COMM_WORLD, 1, &size, &true, true, &ring_comm);
   MPI_Cart_shift(ring_comm, 0, 1, &left, &right);
 	
-	int lsend, rsend,	lrecv, rrecv, right_rank, left_rank;
+	int lsend, rsend,	lrecv, rrecv;
 	
-	// tag for each processor
-	int tag = 10*rank;
+	// initial tag for each processor to send messages
+	int ltag, rtag;
 	int nmsg;
   
   //measuring time taken
@@ -39,70 +40,85 @@ int main(int argc, char* argv[]) {
   		 printf("First implementation: \n\n");
   
   // repeat same operations n times in order to collect a little bit of statistics
-  for(int j = 0; j < niterations; j++) {
+  for(int j = 0; j < 2; j++) {
   		
   	// initialize variables related to msg passing 
   	// what I should initially send and rank the tag I should initially expect
 		lsend = rank, rsend = -rank;
-		right_rank = (rank+1)%size;
-		left_rank = rank-1;
-
+		// initial tag for each processor to send messages
+	  ltag = 10*rank;
+	  rtag = 10*rank;
+    
+    
 		// count msg received 
 		nmsg = 0;
 		
 		// number of iterations must be equal to size in order for each process to receive
 		// back the initial messages
-		for(int i = 0; i < size; i++) { 
-				// synchronize processes 
+		do { 
+			// synchronize processes 
 		  MPI_Barrier(MPI_COMM_WORLD);
-				init = MPI_Wtime();
+			init = MPI_Wtime();
 				
 			if (rank == root) {
-				left_rank = size-1;
 				// root starts sendind to its left and receving from right 
-				MPI_Send(&lsend, 1, MPI_INT, left, tag, ring_comm);
-				MPI_Recv(&rrecv, 1, MPI_INT, right, right_rank*10, ring_comm, &status);
+				MPI_Send(&lsend, 1, MPI_INT, left, ltag, ring_comm);
+				MPI_Recv(&rrecv, 1, MPI_INT, right, MPI_ANY_TAG, ring_comm, &rstatus);
 				nmsg++;
-				// At each iteration each processor substracts its rank to the received message if it comes from right 
-				lsend = rrecv - rank;
+				
+
 				// now send to right and receive from left
-				MPI_Send(&rsend, 1, MPI_INT, right, tag, ring_comm);
-				MPI_Recv(&lrecv, 1, MPI_INT, left, left_rank*10, ring_comm, &status);
+				MPI_Send(&rsend, 1, MPI_INT, right, rtag, ring_comm);
+				MPI_Recv(&lrecv, 1, MPI_INT, left, MPI_ANY_TAG, ring_comm, &lstatus);
 				nmsg++;
 		    // At each iteration each processor adds its rank to the received message if it comes from left 
+		    // and substracts its rank to the received message if it comes from right 
 				rsend = lrecv + rank;
+				lsend = rrecv - rank;
+				// updates tags so that they correspond to the received messages
+				ltag = rstatus.MPI_TAG;
+				rtag = lstatus.MPI_TAG;
+				
 			}
 			else {
-				// start receiving from right and sending to left 
-				MPI_Recv(&rrecv, 1, MPI_INT, right, right_rank*10, ring_comm, &status);
+				//start receiving from right and sending to left 
+				MPI_Recv(&rrecv, 1, MPI_INT, right, MPI_ANY_TAG, ring_comm, &rstatus);
 				nmsg++;
-				MPI_Send(&lsend, 1, MPI_INT, left, tag, ring_comm);
-			  // At each iteration each processor substracts its rank to the received message if it comes from right 
-				lsend = rrecv - rank;
+				MPI_Send(&lsend, 1, MPI_INT, left, ltag, ring_comm);
+			
+			
 				// then receive from left and send to right 
-				MPI_Recv(&lrecv, 1, MPI_INT, left, left_rank*10, ring_comm, &status);
+				MPI_Recv(&lrecv, 1, MPI_INT, left, MPI_ANY_TAG, ring_comm, &lstatus);
 				nmsg++;
-				MPI_Send(&rsend, 1, MPI_INT, right, tag, ring_comm);
+				MPI_Send(&rsend, 1, MPI_INT, right, rtag, ring_comm);
+				
 				// At each iteration each processor adds its rank to the received message if it comes from left 
+		    // and substracts its rank to the received message if it comes from right 
 				rsend = lrecv + rank;
+				lsend = rrecv - rank;
+				// updates tags so that they correspond to the received messages
+				ltag = rstatus.MPI_TAG;
+				rtag = lstatus.MPI_TAG;
+				
 			}
 			
 			MPI_Barrier(MPI_COMM_WORLD);
 			total_time += MPI_Wtime() - init;
-		}
+		} while (ltag != 10*rank);
   }
   
-  printf("I am process %d and I have received %d messages. My final messages have tag %d and value %d, %d\n", rank, nmsg, tag, lrecv, rrecv);
+  printf("I am process %d and I have received %d messages. My final messages have tag %d and %d and value %d, %d\n", rank, nmsg, ltag, rtag, lrecv, rrecv);
   
   MPI_Barrier(MPI_COMM_WORLD);
     	
   if(rank == root)
 		printf("Global amount of time taken by first implementation to run on %d processors is: %f\n", size, total_time/niterations);
 		
-  	MPI_Barrier(MPI_COMM_WORLD);
+  MPI_Barrier(MPI_COMM_WORLD);
   	
-  	if(rank == root)
-  		printf("Second implementation: \n\n");
+  	
+  if(rank == root)
+  	printf("Second implementation: \n\n");
   
   //measuring time taken
   init = 0.0, total_time = 0.0;
@@ -172,8 +188,8 @@ int main(int argc, char* argv[]) {
 	MPI_Barrier(MPI_COMM_WORLD);
 
 	if(rank == root)
-		printf("Global amount of time taken by second implementation to run on %d processors is: %f\n", size, total_time/niterations); */
-	
+		printf("Global amount of time taken by second implementation to run on %d processors is: %f\n", size, total_time/niterations);
+	*/
   MPI_Finalize();
   return 0;
 }
