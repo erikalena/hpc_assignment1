@@ -121,6 +121,8 @@ int main(int argc, char* argv[]) {
   	
   if(rank == root)
   	printf("Second implementation: \n\n");
+  	
+  	MPI_Request request;
   
   //measuring time taken
   init = 0.0, total_time = 0.0;
@@ -155,12 +157,12 @@ int main(int argc, char* argv[]) {
 			
 			if (rank%2 == 0 && rank!=size) { 
 				// root starts sendind to its left and receving from right 
-				MPI_Send(&lsend, 1, MPI_INT, left, ltag, ring_comm);
+				MPI_Isend(&lsend, 1, MPI_INT, left, ltag, ring_comm, &request);
 				MPI_Recv(&rrecv, 1, MPI_INT, right, MPI_ANY_TAG, ring_comm, &rstatus);
 				nmsg++;
 		
 				// now send to right and receive from left
-				MPI_Send(&rsend, 1, MPI_INT, right, rtag, ring_comm);
+				MPI_Isend(&rsend, 1, MPI_INT, right, rtag, ring_comm, &request);
 				MPI_Recv(&lrecv, 1, MPI_INT, left, MPI_ANY_TAG, ring_comm, &lstatus);
 				nmsg++;
 				
@@ -170,12 +172,12 @@ int main(int argc, char* argv[]) {
 				//start receiving from right and sending to left 
 				MPI_Recv(&rrecv, 1, MPI_INT, right, MPI_ANY_TAG, ring_comm, &rstatus);
 				nmsg++;
-				MPI_Send(&lsend, 1, MPI_INT, left, ltag, ring_comm);
+				MPI_Isend(&lsend, 1, MPI_INT, left, ltag, ring_comm, &request);
 	
 				// then receive from left and send to right 
 				MPI_Recv(&lrecv, 1, MPI_INT, left, MPI_ANY_TAG, ring_comm, &lstatus);
 				nmsg++;
-				MPI_Send(&rsend, 1, MPI_INT, right, rtag, ring_comm);
+				MPI_Isend(&rsend, 1, MPI_INT, right, rtag, ring_comm, &request);
 			
 				update_var(rstatus, lstatus);
 			}
