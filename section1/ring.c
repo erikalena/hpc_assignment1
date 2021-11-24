@@ -150,7 +150,7 @@ int main(int argc, char* argv[]) {
 		do { 
 				// synchronize processes 
 		  MPI_Barrier(MPI_COMM_WORLD);
-				init = MPI_Wtime();
+			init = MPI_Wtime();
 				
 			
 			if (rank%2 == 0 && rank!=size) { 
