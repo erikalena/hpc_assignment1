@@ -4,7 +4,7 @@ left and right directions */
 
 #include <stdio.h>
 #include <mpi.h>
-#define niterations 100
+#define niterations 100000
 
 // initial tag for each processor to send messages
 int ltag, rtag;
