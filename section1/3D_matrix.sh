@@ -11,7 +11,7 @@ n=24
 printf '%s\t\t%s\t%s\n' 'Matrix' 'Topology' 'Time taken' >> 3D_matrix.csv
 
 
-mpirun -np 8 -oversubscribe ./summatrix.x 40 20 20
+mpirun -np 8 -oversubscribe ./sum3Dmatrix.x 40 20 20
 
 
 

@@ -141,7 +141,7 @@ int main(int argc, char* argv[]) {
 			MPI_Cart_get(new_communicator, 3, dimsRetrieved, periodsRetrieved, my_coords);
 
 			  FILE *fptr;
-				fptr = fopen("3D_matrix.csv","a");
+				fptr = fopen("3D_matrix.csv","a+");
 				
 				//print matrix dimensions
 			fprintf(fptr,"%dx%dx%d\t", z,x,y);

@@ -10,15 +10,17 @@ N=4
 time_first=[]
 time_second=[]
 
-printf '%s\t%s\t%s\n' 'n_procs' 'time_first' 'time_second' >> results.csv
+printf '%s\t%s\t%s\n' 'n_procs' 'time_nonblocking' 'time_blocking' >> results.csv
 
 for i in  $( seq 0 $N )
 do
-   str=$(mpirun -np $i -oversubscribe ./ring.x | grep time | cut -f2 -d ':')  
+	 mpirun -np $i -oversubscribe ./ring.x
+	 
+   str=$(cat res_ring.txt | grep time | cut -f2 -d ':')  
 
    time_first[i]=$(echo ${str} | cut -d ' ' -f1) 
    time_second[i]=$(echo ${str} | cut -f2 -d ' ') 
-   printf '%d\t%s\t%s\n' ${i} ${time_first[i]} ${time_second[i]} >> results.csv 
+   printf '%d\t%s\t\t%s\n' ${i} ${time_first[i]} ${time_second[i]} >> results.csv 
 done
 
 

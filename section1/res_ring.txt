@@ -1,0 +1,15 @@
+Non blocking implementation: 
+
+I am process 0 and I have received 8 messages. My final messages have tag 0 and 0 and value 6, -6
+I am process 3 and I have received 8 messages. My final messages have tag 30 and 30 and value 0, 0
+I am process 2 and I have received 8 messages. My final messages have tag 20 and 20 and value 2, -2
+I am process 1 and I have received 8 messages. My final messages have tag 10 and 10 and value 4, -4
+Global amount of time taken by non blocking implementation to run on 4 processors is: 0.000009
+
+Blocking implementation: 
+
+I am process 2 and I have received 8 messages. My final messages have tag 20 and 20 and value 2, -2
+I am process 0 and I have received 8 messages. My final messages have tag 0 and 0 and value 6, -6
+I am process 3 and I have received 8 messages. My final messages have tag 30 and 30 and value 0, 0
+I am process 1 and I have received 8 messages. My final messages have tag 10 and 10 and value 4, -4
+Global amount of time taken by blocking implementation to run on 4 processors is: 0.000013
