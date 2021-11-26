@@ -17,7 +17,7 @@ time_second=[]
 
 printf '%s\t%s\t%s\n' 'n_procs' 'time_nonblocking' 'time_blocking' >> results.csv
 
-for i in  $( seq 0 $N )
+for i in  $( seq 2 $N )
 do
    mpirun -np $i --mca btl ^openib -oversubscribe ./ring.x
 	 
