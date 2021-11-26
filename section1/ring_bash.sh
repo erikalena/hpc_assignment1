@@ -1,11 +1,16 @@
 #!/bin/bash
 
+#PBS -l nodes=2:ppn=24
+#PBS -l walltime=00:30:00
+#PBS -q dssc
+
+cd $PBS_O_WORKDIR
 #load openmpi module
-#module load openmpi-4.1.1+gnu-9.3.0
+module load openmpi-4.1.1+gnu-9.3.0
 
 
 # establish the maximum number of processor on which you want to test the code
-N=4
+N=48
 #store time taken by first and second implementation 
 time_first=[]
 time_second=[]
@@ -14,7 +19,7 @@ printf '%s\t%s\t%s\n' 'n_procs' 'time_nonblocking' 'time_blocking' >> results.cs
 
 for i in  $( seq 0 $N )
 do
-	 mpirun -np $i -oversubscribe ./ring.x
+   mpirun -np $i --mca btl ^openib -oversubscribe ./ring.x
 	 
    str=$(cat res_ring.txt | grep time | cut -f2 -d ':')  
 
@@ -23,6 +28,7 @@ do
    printf '%d\t%s\t\t%s\n' ${i} ${time_first[i]} ${time_second[i]} >> results.csv 
 done
 
+exit
 
 
 
