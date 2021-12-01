@@ -19,8 +19,7 @@ i=1
 #for i in {1..3}
 #do 
 	((n=4*i))
-	printf 'core\t%d\t' $n >> results.csv
-	mpirun --mca btl ^openib -np ${n} --map-by core ./jacoby3D.x < input.1200 | tail -n 1 | cut -c 46- | cut --complement -c 84-122 >> results.csv
+	printf 'core\t%d\t%s\t%s\t%s\t%s\t%s\n' $n `mpirun --mca btl ^openib -np ${n} --map-by core ./jacoby3D.x < input.1200 | tail -n 1 | cut -c 46- | cut --complement -c 84-122` >> results.csv
 	
 	#mpirun --mca btl ^openib -np $n -map-by core ./jacoby3D.x < input.1200 | tail -n 1 | cut -c 46- | cut --complement -c 84-122
 
