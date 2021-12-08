@@ -2,24 +2,23 @@
 library(ggplot2)
 library(RColorBrewer)
 library(patchwork)
+library(data.table)
 
 setwd("~/DSSC/hpc_assignment1/section2")
-col_legend <-brewer.pal(n=8, name="Dark2")
-
-
+col_legend <- brewer.pal(n=8, name="Dark2")
 
 ##############
 plot_times <- function(file) {
   df <- data.frame(read.csv(file))
   df<-df[1:24,]
   
-  model <-lm(t.usec.[1:24] ~ X.bytes[1:24], df)
-  lambda <- model$coef[1]
+  model <-lm(t.usec.[1:26] ~ X.bytes[1:26], df)
+  lambda <-  model$coef[1]
   B <- model$coef[2]
   
   print(file)
   print(coef(model))
-  print(paste0("bandwith: ", 1/coef(model)[2], "\n"))
+  print(paste0("bandwith: ", 1/coef(model)[2]))
   
   times <- ggplot() +
     # core ucx
@@ -31,23 +30,30 @@ plot_times <- function(file) {
     geom_point(data = df, aes(x = as.factor(X.bytes), y = min(t.usec.) + X.bytes/max(Mbytes.sec), color="comm. model", group=1)) +
 
     # fit 
-    geom_line(data = df, aes(x = as.factor(X.bytes), y = lambda + X.bytes*B, color="fit model", group=1)) +
-    geom_point(data = df, aes(x = as.factor(X.bytes), y = lambda + X.bytes*B, color="fit model", group=1)) +
-
+   # geom_line(data = df, aes(x = as.factor(X.bytes), y = lambda + X.bytes*B, color="fit lm model", group=1)) +
+   # geom_point(data = df, aes(x = as.factor(X.bytes), y = lambda + X.bytes*B, color="fit lm model", group=1)) +
+    geom_point(aes(as.factor(df$X.bytes), loess(t.usec. ~ X.bytes, df)$fitted, color="fit model", group=1))+
+    geom_line(aes(as.factor(df$X.bytes), loess(t.usec. ~ X.bytes, df)$fitted, color="fit model", group=1))+
+    
     
     labs(x = "Message size (bytes)", y = "Time") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
     theme(legend.title = element_blank()) +
-    scale_colour_manual(values = c("empirical" = "#2bacbd", "comm. model" = "#cf5e25", "fit model" = "#297504")) +
+    scale_colour_manual(values = c("empirical" = "#2bacbd", "comm. model" = "#cf5e25", "fit lm model" = "#000604", "fit model" = "#297504")) +
     labs(title = gsub('_', ' ', gsub('.{4}$', '', file)))
   
+
+  if(!"t.usec.comp."  %in% colnames(df)){
+    df$t.usec.comp. <- round(loess(t.usec. ~ X.bytes, df)$fitted, 4)
+    fwrite(df, file)
+  }
   return(times)
 }
 
 
 plot_bandwidth <- function(file) {
   df <- data.frame(read.csv(file))
-
+  #df <- df[1:22,]
   #bandwidth
   bandwidth <- ggplot() +
     # core ucx
@@ -59,36 +65,84 @@ plot_bandwidth <- function(file) {
     geom_point(data = df, aes(x = as.factor(X.bytes), y = X.bytes/(min(t.usec.) + X.bytes/max(Mbytes.sec)), color="comm. model", group=1)) +
 
     # fit
-    #geom_line(data = df, aes(x = as.factor(X.bytes), y = 1/bandwidth[file] , color="fit model", group=1)) +
+    #geom_point(aes(as.factor(df$X.bytes), loess(Mbytes.sec ~ X.bytes, df,degree=1)$fitted, color="fit model", group=1))+
+    #geom_line(aes(as.factor(df$X.bytes), loess(Mbytes.sec ~ X.bytes, df, degree=1)$fitted, color="fit model", group=1))+
 
+    
     labs(x = "Message size (bytes)", y = "Bandwidth") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
     theme(legend.title = element_blank()) +
     scale_colour_manual(values = c("empirical" = "#2bacbd", "comm. model" = "#cf5e25", "fit model" = "#297504")) +
     labs(title = gsub('_', ' ', gsub('.{4}$', '', file)))
 
+  
+  if(!"Mbytes.sec.comp."  %in% colnames(df)){
+    df$Mbytes.sec.comp. <- round(loess(Mbytes.sec ~ X.bytes, df)$fitted, 4)
+    fwrite(df, file)
+  }
+
   return(bandwidth)
 }
 
-plot_openmpi_times <- function(core, socket, node) {
+plot_nshm <- function(core, socket, node, type) {
   core_times <- plot_times(core)
   socket_times <- plot_times(socket)
   node_times <- plot_times(node)
   core_times + socket_times + node_times
+  ggsave(paste0( "times ", type, ".png"), width = 20, height = 8, dpi = 150)
+  
+  # core_bandwidth <- plot_bandwidth(core)
+  # socket_bandwidth <- plot_bandwidth(socket)
+  # node_bandwidth <- plot_bandwidth(node)
+  # core_bandwidth + socket_bandwidth + node_bandwidth
 }
 
-plot_openmpi_bandwidth <- function(core, socket, node) {
+
+plot_shm <- function(core, socket) {
+  # core_times <- plot_times(core)
+  # socket_times <- plot_times(socket)
+  # core_times + socket_times
+  
   core_bandwidth <- plot_bandwidth(core)
   socket_bandwidth <- plot_bandwidth(socket)
-  node_badnwidth <- plot_bandwidth(node)
-  core_bandwidth + socket_bandwidth + node_badnwidth
+  core_bandwidth + socket_bandwidth
 }
+
 
 #openmpi - cpu
 ##############
 #ucx
-plot_openmpi_times("core_ucx.csv", "socket_ucx.csv", "node_ucx.csv")
-plot_openmpi_bandwidth("core_ucx.csv", "socket_ucx.csv", "node_ucx.csv")
+plot_nshm("core_ucx.csv", "socket_ucx.csv", "node_ucx.csv", "ucx_openmpi_cpu")
 #tcp
-plot_openmpi_times("core_ucx.csv", "socket_tcp.csv", "node_tcp.csv")
-plot_openmpi_bandwidth("core_tcp.csv", "socket_tcp.csv", "node_tcp.csv")
+plot_nshm("core_tcp.csv", "socket_tcp.csv", "node_tcp.csv", "tcp_openmpi_cpu")
+#vader
+plot_shm("core_vader.csv", "socket_vader.csv", "vader_openmpi_cpu")
+
+#openmpi - gpu
+##############
+#ucx
+plot_nshm("core_ucx_gpu.csv", "socket_ucx_gpu.csv", "node_ucx_gpu.csv", "ucx_openmpi_gpu")
+#tcp
+plot_nshm("core_tcp_gpu.csv", "socket_tcp_gpu.csv", "node_tcp_gpu.csv", "tcp_openmpi_gpu")
+#vader
+plot_shm("core_vader_gpu.csv", "socket_vader_gpu.csv", "vader_openmpi_gpu")
+
+#intel - cpu
+##############
+#ucx
+plot_nshm("intel_core_ucx.csv", "intel_socket_ucx.csv", "intel_node_ucx.csv", "ucx_intel_cpu")
+#tcp
+plot_nshm("intel_core_tcp.csv", "intel_socket_tcp.csv", "intel_node_tcp.csv","tcp_intel_cpu")
+#vader
+plot_shm("intel_core_vader.csv", "intel_socket_vader.csv","vader_intel_cpu")
+
+#intel - gpu
+##############
+#ucx
+plot_nshm("intel_core_ucx_gpu.csv", "intel_ocket_ucx_gpu.csv", "intel_node_ucx_gpu.csv","ucx_intel_gpu")
+#tcp
+plot_nshm("intel_core_ucx_gpu.csv", "intel_socket_tcp_gpu.csv", "intel_node_tcp_gpu.csv","tcp_intel_gpu")
+#vader
+plot_shm("intel_core_vader_gpu.csv", "intel_socket_vader_gpu.csv", "vader_intel_gpu")
+
+
