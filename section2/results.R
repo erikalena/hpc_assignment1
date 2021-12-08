@@ -1,56 +1,94 @@
 # read csv assignment 1 
 library(ggplot2)
+library(RColorBrewer)
+library(patchwork)
+
 setwd("~/DSSC/hpc_assignment1/section2")
+col_legend <-brewer.pal(n=8, name="Dark2")
+
+
 
 ##############
-#core_ucx
-core_ucx <- data.frame(read.csv("core_ucx.csv"))
+plot_times <- function(file) {
+  df <- data.frame(read.csv(file))
+  df<-df[1:24,]
+  
+  model <-lm(t.usec.[1:24] ~ X.bytes[1:24], df)
+  lambda <- model$coef[1]
+  B <- model$coef[2]
+  
+  print(file)
+  print(coef(model))
+  print(paste0("bandwith: ", 1/coef(model)[2], "\n"))
+  
+  times <- ggplot() +
+    # core ucx
+    geom_line(data = df, aes(x = as.factor(X.bytes), y = t.usec., color="empirical", group = 1)) +
+    geom_point(data = df, aes(x = as.factor(X.bytes), y = t.usec., color="empirical", group = 1))  + 
 
-attach(core_ucx)
+    # theoretical 
+    geom_line(data = df, aes(x = as.factor(X.bytes), y = min(t.usec.) + X.bytes/max(Mbytes.sec), color="comm. model", group=1)) +
+    geom_point(data = df, aes(x = as.factor(X.bytes), y = min(t.usec.) + X.bytes/max(Mbytes.sec), color="comm. model", group=1)) +
 
-#latency
-a <- core_ucx[1:15,]
-p<- ggplot(data = a, aes(x = as.factor(X.bytes), y = t.usec., color = 2,group = 1))  + geom_line() + geom_point()
-p + geom_line(data = a, aes(x = as.factor(X.bytes), y = 0.20 + X.bytes/12500, color=3)) + geom_line() + geom_point()
-                     
-#bandwidth
-p <- ggplot(data = core_ucx, aes(x = as.factor(X.bytes), y = Mbytes.sec, color = 2,group = 1)) 
-p + geom_line() + geom_point() + labs(x = "Message size (bytes)") + theme(legend.position="none") 
+    # fit 
+    geom_line(data = df, aes(x = as.factor(X.bytes), y = lambda + X.bytes*B, color="fit model", group=1)) +
+    geom_point(data = df, aes(x = as.factor(X.bytes), y = lambda + X.bytes*B, color="fit model", group=1)) +
 
-p <- ggplot(data = core_ucx, aes(x = as.factor(X.bytes), y = 0.20 + X.bytes/12500, color = 2,group = 1)) 
-p + geom_line(data = core_ucx, aes(x = as.factor(X.bytes), y = 0.20 + X.bytes/12500)) + geom_point() + labs(x = "Message size (bytes)", y="Time (s)") + theme(legend.position="none") 
+    
+    labs(x = "Message size (bytes)", y = "Time") +
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+    theme(legend.title = element_blank()) +
+    scale_colour_manual(values = c("empirical" = "#2bacbd", "comm. model" = "#cf5e25", "fit model" = "#297504")) +
+    labs(title = gsub('_', ' ', gsub('.{4}$', '', file)))
+  
+  return(times)
+}
 
-p <- geom_line(0.20 + X.bytes/12500)
 
+plot_bandwidth <- function(file) {
+  df <- data.frame(read.csv(file))
 
-ggplot() + 
-  geom_line(data = core_ucx, aes(x = X.bytes, y = 0.20 + X.bytes/12500), color = "red")
+  #bandwidth
+  bandwidth <- ggplot() +
+    # core ucx
+    geom_line(data = df, aes(x = as.factor(X.bytes), group = 2, y = Mbytes.sec, color="empirical")) +
+    geom_point(data = df, aes(x = as.factor(X.bytes), group = 2, y = Mbytes.sec, color="empirical"))  +
 
-detach(core_ucx)
+    # theoretical
+    geom_line(data = df, aes(x = as.factor(X.bytes), y = X.bytes/(min(t.usec.) + X.bytes/max(Mbytes.sec)), color="comm. model", group=1)) +
+    geom_point(data = df, aes(x = as.factor(X.bytes), y = X.bytes/(min(t.usec.) + X.bytes/max(Mbytes.sec)), color="comm. model", group=1)) +
 
-#############
-#socket_ucx
-socket_ucx <- data.frame(read.csv("socket_ucx.csv"))
+    # fit
+    #geom_line(data = df, aes(x = as.factor(X.bytes), y = 1/bandwidth[file] , color="fit model", group=1)) +
 
-############
-#node_ucx
-node_ucx <- data.frame(read.csv("node_ucx.csv"))
+    labs(x = "Message size (bytes)", y = "Bandwidth") +
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+    theme(legend.title = element_blank()) +
+    scale_colour_manual(values = c("empirical" = "#2bacbd", "comm. model" = "#cf5e25", "fit model" = "#297504")) +
+    labs(title = gsub('_', ' ', gsub('.{4}$', '', file)))
 
+  return(bandwidth)
+}
+
+plot_openmpi_times <- function(core, socket, node) {
+  core_times <- plot_times(core)
+  socket_times <- plot_times(socket)
+  node_times <- plot_times(node)
+  core_times + socket_times + node_times
+}
+
+plot_openmpi_bandwidth <- function(core, socket, node) {
+  core_bandwidth <- plot_bandwidth(core)
+  socket_bandwidth <- plot_bandwidth(socket)
+  node_badnwidth <- plot_bandwidth(node)
+  core_bandwidth + socket_bandwidth + node_badnwidth
+}
+
+#openmpi - cpu
 ##############
-#core_vader
-core_vader <- data.frame(read.csv("core_vader.csv"))
-
-attach(core_vader)
-
-#latency
-a <- core_vader[1:15,]
-ggplot(data = a, aes(x = as.factor(a$X.bytes), y = a$t.usec., color = 2,group = 1))  + geom_line() + geom_point()
-
-#bandwidth
-p <- ggplot(data = core_vader, aes(x = as.factor(trunc(X.bytes)), y = Mbytes.sec, color = 2,group = 1)) 
-p + geom_line() + geom_point() + labs(x = "Message size (bytes)") + theme(legend.position="none") 
-
-detach(core_vader)
-
-#################
-#
+#ucx
+plot_openmpi_times("core_ucx.csv", "socket_ucx.csv", "node_ucx.csv")
+plot_openmpi_bandwidth("core_ucx.csv", "socket_ucx.csv", "node_ucx.csv")
+#tcp
+plot_openmpi_times("core_ucx.csv", "socket_tcp.csv", "node_tcp.csv")
+plot_openmpi_bandwidth("core_tcp.csv", "socket_tcp.csv", "node_tcp.csv")
