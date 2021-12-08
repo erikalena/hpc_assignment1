@@ -9,8 +9,8 @@ col_legend <- brewer.pal(n=8, name="Dark2")
 
 ##############
 plot_times <- function(file) {
-  df <- data.frame(read.csv(file))
-  df<-df[1:24,]
+  df1 <- data.frame(read.csv(file))
+  df <- df1[1:24,]
   
   model <-lm(t.usec.[1:26] ~ X.bytes[1:26], df)
   lambda <-  model$coef[1]
@@ -43,16 +43,17 @@ plot_times <- function(file) {
     labs(title = gsub('_', ' ', gsub('.{4}$', '', file)))
   
 
-  if(!"t.usec.comp."  %in% colnames(df)){
-    df$t.usec.comp. <- round(loess(t.usec. ~ X.bytes, df)$fitted, 4)
-    fwrite(df, file)
+  if(!"t.usec.comp."  %in% colnames(df1)){
+    df1$t.usec.comp. <- round(loess(t.usec. ~ X.bytes, df1)$fitted, 4)
+    fwrite(df1, file)
   }
   return(times)
 }
 
 
 plot_bandwidth <- function(file) {
-  df <- data.frame(read.csv(file))
+  df1 <- data.frame(read.csv(file))
+  df <- df1
   #df <- df[1:22,]
   #bandwidth
   bandwidth <- ggplot() +
@@ -76,9 +77,9 @@ plot_bandwidth <- function(file) {
     labs(title = gsub('_', ' ', gsub('.{4}$', '', file)))
 
   
-  if(!"Mbytes.sec.comp."  %in% colnames(df)){
-    df$Mbytes.sec.comp. <- round(loess(Mbytes.sec ~ X.bytes, df)$fitted, 4)
-    fwrite(df, file)
+  if(!"Mbytes.sec.comp."  %in% colnames(df1)){
+    df1$Mbytes.sec.comp. <- round(loess(Mbytes.sec ~ X.bytes, df1)$fitted, 4)
+    fwrite(df1, file)
   }
 
   return(bandwidth)
@@ -89,23 +90,27 @@ plot_nshm <- function(core, socket, node, type) {
   socket_times <- plot_times(socket)
   node_times <- plot_times(node)
   core_times + socket_times + node_times
-  ggsave(paste0( "times ", type, ".png"), width = 20, height = 8, dpi = 150)
+  ggsave(paste0( "images/times_", type, ".png"), width = 20, height = 8, dpi = 150)
   
-  # core_bandwidth <- plot_bandwidth(core)
-  # socket_bandwidth <- plot_bandwidth(socket)
-  # node_bandwidth <- plot_bandwidth(node)
-  # core_bandwidth + socket_bandwidth + node_bandwidth
+  core_bandwidth <- plot_bandwidth(core)
+  socket_bandwidth <- plot_bandwidth(socket)
+  node_bandwidth <- plot_bandwidth(node)
+  core_bandwidth + socket_bandwidth + node_bandwidth
+  ggsave(paste0( "images/bandwidth_", type, ".png"), width = 20, height = 8, dpi = 150)
+  
 }
 
 
-plot_shm <- function(core, socket) {
-  # core_times <- plot_times(core)
-  # socket_times <- plot_times(socket)
-  # core_times + socket_times
+plot_shm <- function(core, socket,type) {
+  core_times <- plot_times(core)
+  socket_times <- plot_times(socket)
+  core_times + socket_times
+  ggsave(paste0( "images/times_", type, ".png"), width = 20, height = 8, dpi = 150)
   
   core_bandwidth <- plot_bandwidth(core)
   socket_bandwidth <- plot_bandwidth(socket)
   core_bandwidth + socket_bandwidth
+  ggsave(paste0( "images/bandwidth_", type, ".png"), width = 20, height = 8, dpi = 150)
 }
 
 
