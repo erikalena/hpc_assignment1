@@ -9,7 +9,7 @@ col_legend <- brewer.pal(n=8, name="Dark2")
 
 ##############
 plot_times <- function(file) {
-  df1 <- data.frame(read.csv(file))
+  df1 <- data.frame(read.csv(paste0("csv/",file)))
   df <- df1[1:24,]
   
   model <-lm(t.usec.[1:26] ~ X.bytes[1:26], df)
@@ -39,22 +39,21 @@ plot_times <- function(file) {
     labs(x = "Message size (bytes)", y = "Time") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
     theme(legend.title = element_blank()) +
-    scale_colour_manual(values = c("empirical" = "#2bacbd", "comm. model" = "#cf5e25", "fit lm model" = "#000604", "fit model" = "#297504")) +
+    scale_colour_manual(values = c("empirical" = "#2bacbd", "comm. model" = "#cf5e25", "fit model" = "#297504")) +
     labs(title = gsub('_', ' ', gsub('.{4}$', '', file)))
   
 
-  if(!"t.usec.comp."  %in% colnames(df1)){
+ # if(!"t.usec.comp."  %in% colnames(df1)){
     df1$t.usec.comp. <- round(loess(t.usec. ~ X.bytes, df1)$fitted, 4)
-    fwrite(df1, file)
-  }
+    fwrite(df1, paste0("csv/",file))
+ # }
   return(times)
 }
 
 
 plot_bandwidth <- function(file) {
-  df1 <- data.frame(read.csv(file))
-  df <- df1
-  #df <- df[1:22,]
+  df1 <- data.frame(read.csv(paste0("csv/",file)))
+  df <- df1[1:24,]
   #bandwidth
   bandwidth <- ggplot() +
     # core ucx
@@ -68,7 +67,9 @@ plot_bandwidth <- function(file) {
     # fit
     #geom_point(aes(as.factor(df$X.bytes), loess(Mbytes.sec ~ X.bytes, df,degree=1)$fitted, color="fit model", group=1))+
     #geom_line(aes(as.factor(df$X.bytes), loess(Mbytes.sec ~ X.bytes, df, degree=1)$fitted, color="fit model", group=1))+
-
+    geom_line(data = df, aes(x = as.factor(X.bytes), y = X.bytes/(loess(t.usec. ~ X.bytes, df)$fitted), color="fit model", group=1)) +
+    geom_point(data = df, aes(x = as.factor(X.bytes), y = X.bytes/(loess(t.usec. ~ X.bytes, df)$fitted), color="fit model", group=1)) +
+    
     
     labs(x = "Message size (bytes)", y = "Bandwidth") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
@@ -77,10 +78,10 @@ plot_bandwidth <- function(file) {
     labs(title = gsub('_', ' ', gsub('.{4}$', '', file)))
 
   
-  if(!"Mbytes.sec.comp."  %in% colnames(df1)){
-    df1$Mbytes.sec.comp. <- round(loess(Mbytes.sec ~ X.bytes, df1)$fitted, 4)
-    fwrite(df1, file)
-  }
+  # if(!"Mbytes.sec.comp."  %in% colnames(df1)){
+    df1$Mbytes.sec.comp. <- round(df1$X.bytes/(loess(t.usec. ~ X.bytes, df1)$fitted), 4)
+    fwrite(df1, paste0("csv/",file))
+  # }
 
   return(bandwidth)
 }
@@ -137,17 +138,17 @@ plot_shm("core_vader_gpu.csv", "socket_vader_gpu.csv", "vader_openmpi_gpu")
 #ucx
 plot_nshm("intel_core_ucx.csv", "intel_socket_ucx.csv", "intel_node_ucx.csv", "ucx_intel_cpu")
 #tcp
-plot_nshm("intel_core_tcp.csv", "intel_socket_tcp.csv", "intel_node_tcp.csv","tcp_intel_cpu")
+plot_nshm("intel_core_tcp.csv", "intel_socket_tcp.csv", "intel_node_tcp.csv", "tcp_intel_cpu")
 #vader
-plot_shm("intel_core_vader.csv", "intel_socket_vader.csv","vader_intel_cpu")
+plot_shm("intel_core_shm.csv", "intel_socket_shm.csv","shm_intel_cpu")
 
 #intel - gpu
 ##############
 #ucx
-plot_nshm("intel_core_ucx_gpu.csv", "intel_ocket_ucx_gpu.csv", "intel_node_ucx_gpu.csv","ucx_intel_gpu")
+plot_nshm("intel_core_ucx_gpu.csv", "intel_socket_ucx_gpu.csv", "intel_node_ucx_gpu.csv", "ucx_intel_gpu")
 #tcp
-plot_nshm("intel_core_ucx_gpu.csv", "intel_socket_tcp_gpu.csv", "intel_node_tcp_gpu.csv","tcp_intel_gpu")
+plot_nshm("intel_core_tcp_gpu.csv", "intel_socket_tcp_gpu.csv", "intel_node_tcp_gpu.csv", "tcp_intel_gpu")
 #vader
-plot_shm("intel_core_vader_gpu.csv", "intel_socket_vader_gpu.csv", "vader_intel_gpu")
+plot_shm("intel_core_shm_gpu.csv", "intel_socket_shm_gpu.csv", "shm_intel_gpu")
 
 
