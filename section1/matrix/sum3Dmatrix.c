@@ -9,7 +9,7 @@
 
 #define niterations 1000
 
-/*
+
 void print_matrix(int z, int x, int y, double matrix[z][x][y]) {
 
 	for(int k = 0; k < z; k++) {
@@ -22,7 +22,7 @@ void print_matrix(int z, int x, int y, double matrix[z][x][y]) {
       printf("\n");
   	}
 }
-*/
+
 
 
 int main(int argc, char* argv[]) {
@@ -73,21 +73,10 @@ int main(int argc, char* argv[]) {
 				}
 			
 			// print M and N
-			
-			printf("Matrix M is: \n");
-			
-			for(int k = 0; k < roundz; k++) {
-		   	for(int i = 0; i < roundx; i++) {
-		    		for(int j = 0; j < roundy; j++) {
-		       printf("%f (%d,%d,%d) \t", M[k][i][j], k, i,j);
-		      }
-		       printf("\n");
-		    }
-		    printf("\n");
-			}
-			//print_matrix(roundz,roundx,y,M);
+			//printf("Matrix M is: \n");
+			//print_matrix(roundz,roundx,roundy,M);
 			//printf("Matrix N is: \n");
-			//print_matrix(z,x,y,N);
+			//print_matrix(roundz,roundx,roundy,N);
 			
 		}
 		
@@ -111,12 +100,12 @@ int main(int argc, char* argv[]) {
 			
 
 			// submatrices dimensions for each process	
-			int pz = roundz/size, px = roundx/size, py = roundy/size;
-			double M_1[pz][px][py], N_1[pz][px][py], S[pz][px][py];
+			int pz = roundz/dims[k][2], px = roundx/dims[k][0], py = roundy/dims[k][1];
+			double M_1[pz][px][py], N_1[pz][px][py];
 			int nsnd = pz*px*py;
 			
 					
-			//measuring time taken
+			// measuring time taken
 			double init = 0.0, total_time = 0.0;
 			
 			for (int h = 0; h < niterations; h++) {
@@ -132,10 +121,11 @@ int main(int argc, char* argv[]) {
 				for(int k = 0; k < pz; k++) 
 				 	for(int i = 0; i < px; i++) 
 							for(int j = 0; j < py; j++) 
-								M_1[k][i][j]+= N_1[k][i][j];
+								M_1[k][i][j] += N_1[k][i][j];
 			 
-				
-				MPI_Gather(M_1, nsnd, MPI_DOUBLE_PRECISION, S, nsnd, MPI_DOUBLE_PRECISION, root, new_communicator);
+
+			
+				MPI_Gather(M_1, nsnd, MPI_DOUBLE_PRECISION, M, nsnd, MPI_DOUBLE_PRECISION, root, new_communicator);
 				
 				MPI_Barrier(new_communicator);
 				total_time += MPI_Wtime() - init;
@@ -146,26 +136,26 @@ int main(int argc, char* argv[]) {
 		 		
 		 	if(rank == root) {
 		 		//print the sum of the two matrices
-				//fprintf(fptr, "The sum of the two matrices is: \n");
-				//print_matrix(z,x,y,S,fptr);
+				//printf("The sum of the two matrices is: \n");
+				//print_matrix(roundz,roundx,roundy,M);
 				
 				int dimsRetrieved[3], periodsRetrieved[3], my_coords[3];
 				MPI_Cart_get(new_communicator, 3, dimsRetrieved, periodsRetrieved, my_coords);
 
-					FILE *fptr;
-					fptr = fopen("3D_matrix.csv","a+");
-					
-					//print matrix dimensions
-				fprintf(fptr,"%dx%dx%d\t", z,x,y);
+				FILE *fptr;
+				fptr = fopen("3D_matrix.csv","a+");
+				
+				//print matrix dimensions
+				fprintf(fptr,"%dx%dx%d,", z,x,y);
 				
 				//print topology
 				for(int t = 0; t < 3; t++) {
 					fprintf(fptr,"%d", dimsRetrieved[t]);
 					if(t < 2) fprintf(fptr,"x");
-				}
+			}
 				
 				//print time taken
-				fprintf(fptr,"\t\t%f\n", total_time/niterations);
+				fprintf(fptr,",%f,\n", total_time/niterations);
 
 			} 
 		}
