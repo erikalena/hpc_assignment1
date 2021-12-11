@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include <mpi.h>
 #include <time.h>
@@ -23,6 +24,17 @@ void print_matrix(int z, int x, int y, double matrix[z][x][y]) {
   	}
 }
 
+int *find_divisors(int procs, int* n) {
+	int (*d) = malloc(sizeof(int[1]));
+	for (int i = 2; i <= procs/2; i++) {
+		if(procs%i == 0) {
+			d[*n] = i;
+			(*n)++;
+		}
+	}
+	
+	return d;
+}
 
 
 int main(int argc, char* argv[]) {
@@ -80,8 +92,51 @@ int main(int argc, char* argv[]) {
 			
 		}
 		
-		int dims[][3] = {{size,1,1}, {4,2,1},{2,2,2}};
-		int trials = sizeof(dims)/12;
+		// find topologies
+		/*
+		int n = 0;
+		int *d = find_divisors(n_procs, &n);
+
+		int div[n] ;
+		for (int i = 0 ; i < n ; i++) {
+				if(rank == root) 
+				div[i] = d[i];
+		}
+		free(d);
+		
+		int (*dims)[3] = malloc(sizeof(int[1][3]));
+		int a[3] = {n_procs,1,1};
+		memcpy(dims[0],a,sizeof(a));	
+		
+		int r = 1; 
+		for(int i = 0; i < n/2; i++) {
+		  for(int j = i; j < n; j++) {
+		    if (div[i]*div[j] == n_procs) {
+		      int a[3] = {div[i],div[j], 1};
+		      memcpy(dims[r++],a,sizeof(a));	
+		    }
+		    else {
+		      for(int x = j; x < n - 1; x++) {
+		        if(div[i]*div[j]*div[x] == n_procs) {
+		      			int a[3] = {div[i],div[j], div[x]};
+		      			memcpy(dims[r++],a,sizeof(a));	
+		      		}
+		      }
+		    }
+		  }
+		} 
+		if(rank == root) {
+		for(int i =0; i < r; i++) {
+				printf("%dx%dx%d\n", dims[i][0], dims[i][1], dims[i][2]);
+		}
+		} 
+		
+		MPI_Barrier(MPI_COMM_WORLD);		
+		//free(dims);
+		*/
+		
+		int dims[][3] = {{size,1,1}, {size/2,2,1},{size/3,3,1},{size/4,4,1},{size/4,2,2},{size/6,2,3}};
+	  int trials = sizeof(dims)/12;
 		
 		// test performances for each of the given topologies
 		for(int k = 0; k < trials; k++) {
@@ -160,7 +215,7 @@ int main(int argc, char* argv[]) {
 			} 
 		}
 		 
-		
 	}
+	
 	ierr = MPI_Finalize();
 }
