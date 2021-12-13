@@ -24,17 +24,6 @@ void print_matrix(int z, int x, int y, double matrix[z][x][y]) {
   	}
 }
 
-int *find_divisors(int procs, int* n) {
-	int (*d) = malloc(sizeof(int[1]));
-	for (int i = 2; i <= procs/2; i++) {
-		if(procs%i == 0) {
-			d[*n] = i;
-			(*n)++;
-		}
-	}
-	
-	return d;
-}
 
 
 int main(int argc, char* argv[]) {
@@ -92,48 +81,6 @@ int main(int argc, char* argv[]) {
 			
 		}
 		
-		// find topologies
-		/*
-		int n = 0;
-		int *d = find_divisors(n_procs, &n);
-
-		int div[n] ;
-		for (int i = 0 ; i < n ; i++) {
-				if(rank == root) 
-				div[i] = d[i];
-		}
-		free(d);
-		
-		int (*dims)[3] = malloc(sizeof(int[1][3]));
-		int a[3] = {n_procs,1,1};
-		memcpy(dims[0],a,sizeof(a));	
-		
-		int r = 1; 
-		for(int i = 0; i < n/2; i++) {
-		  for(int j = i; j < n; j++) {
-		    if (div[i]*div[j] == n_procs) {
-		      int a[3] = {div[i],div[j], 1};
-		      memcpy(dims[r++],a,sizeof(a));	
-		    }
-		    else {
-		      for(int x = j; x < n - 1; x++) {
-		        if(div[i]*div[j]*div[x] == n_procs) {
-		      			int a[3] = {div[i],div[j], div[x]};
-		      			memcpy(dims[r++],a,sizeof(a));	
-		      		}
-		      }
-		    }
-		  }
-		} 
-		if(rank == root) {
-		for(int i =0; i < r; i++) {
-				printf("%dx%dx%d\n", dims[i][0], dims[i][1], dims[i][2]);
-		}
-		} 
-		
-		MPI_Barrier(MPI_COMM_WORLD);		
-		//free(dims);
-		*/
 		
 		int dims[][3] = {{size,1,1}, {size/2,2,1},{size/3,3,1},{size/4,4,1},{size/4,2,2},{size/6,2,3}};
 	  int trials = sizeof(dims)/12;
@@ -163,29 +110,28 @@ int main(int argc, char* argv[]) {
 			// measuring time taken
 			double init = 0.0, total_time = 0.0;
 			
-			for (int h = 0; h < niterations; h++) {
 			
 						
-				MPI_Barrier(new_communicator);		
-				init = MPI_Wtime();
-								
-				MPI_Scatter(M, nsnd, MPI_DOUBLE_PRECISION, M_1, nsnd, MPI_DOUBLE_PRECISION, root, new_communicator);
-				MPI_Scatter(N, nsnd, MPI_DOUBLE_PRECISION, N_1, nsnd, MPI_DOUBLE_PRECISION, root, new_communicator);
-
-				
-				for(int k = 0; k < pz; k++) 
-				 	for(int i = 0; i < px; i++) 
-							for(int j = 0; j < py; j++) 
-								M_1[k][i][j] += N_1[k][i][j];
-			 
+			MPI_Barrier(new_communicator);		
+			init = MPI_Wtime();
+							
+			MPI_Scatter(M, nsnd, MPI_DOUBLE_PRECISION, M_1, nsnd, MPI_DOUBLE_PRECISION, root, new_communicator);
+			MPI_Scatter(N, nsnd, MPI_DOUBLE_PRECISION, N_1, nsnd, MPI_DOUBLE_PRECISION, root, new_communicator);
 
 			
-				MPI_Gather(M_1, nsnd, MPI_DOUBLE_PRECISION, M, nsnd, MPI_DOUBLE_PRECISION, root, new_communicator);
-				
-				MPI_Barrier(new_communicator);
-				total_time += MPI_Wtime() - init;
+			for(int k = 0; k < pz; k++) 
+			 	for(int i = 0; i < px; i++) 
+						for(int j = 0; j < py; j++) 
+							M_1[k][i][j] += N_1[k][i][j];
+		 
+
+		
+			MPI_Gather(M_1, nsnd, MPI_DOUBLE_PRECISION, M, nsnd, MPI_DOUBLE_PRECISION, root, new_communicator);
+			
+			MPI_Barrier(new_communicator);
+			total_time += MPI_Wtime() - init;
 					 	
-		 	}
+		 	
 	 	
 		 	MPI_Barrier(new_communicator);
 		 		
