@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-	MPI_Request request;
+	MPI_Request lrequest, rrequest;
   MPI_Status lstatus, rstatus; // status of msgs received from left and from right respectively
   MPI_Comm ring_comm;
   
@@ -77,16 +77,16 @@ int main(int argc, char* argv[]) {
 			do { 
 			
 					// send to right and receive from left
-					MPI_Isend(&rsend, 1, MPI_INT, right, rtag, ring_comm, &request);
-					MPI_Irecv(&lrecv, 1, MPI_INT, left, MPI_ANY_TAG, ring_comm, &request);
+					MPI_Isend(&rsend, 1, MPI_INT, right, rtag, ring_comm, &rrequest);
+					MPI_Irecv(&lrecv, 1, MPI_INT, left, MPI_ANY_TAG, ring_comm, &lrequest);
 					nmsg++;
-					MPI_Wait(&request, &lstatus);
 					
 					// send to left and receve from right 
 					MPI_Isend(&lsend, 1, MPI_INT, left, ltag, ring_comm, &request);
 					MPI_Irecv(&rrecv, 1, MPI_INT, right, MPI_ANY_TAG, ring_comm, &request);
 					nmsg++;
-					MPI_Wait(&request, &rstatus);
+					MPI_Wait(&rrequest, &lstatus);
+					MPI_Wait(&lrequest, &rstatus);
 					
 					update_var(rstatus, lstatus);
 				
