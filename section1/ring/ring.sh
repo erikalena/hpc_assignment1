@@ -19,7 +19,7 @@ printf '%s,%s,%s\n' 'n_procs' 'time_nonblocking' 'time_blocking' >> results.csv
 
 for i in  $( seq 2 $N )
 do
-   mpirun -np $i --mca btl ^openib -oversubscribe ./ring.x
+   mpirun --mca btl ^openib -np $i ./ring.x
 	 
    str=$(cat res_ring.txt | grep time | cut -f2 -d ':')  
 
