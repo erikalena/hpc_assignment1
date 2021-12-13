@@ -1,0 +1,1178 @@
+loading dependency gnu/9.3.0
+loading dependency numactl/2.0.13
+loading dependency hwloc/2.2.0
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:24650] 1 more process has sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:24650] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:24668] 2 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:24668] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:24688] 3 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:24688] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:24710] 4 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:24710] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:24734] 5 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:24734] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:24760] 6 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:24760] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:24789] 7 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:24789] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:24819] 8 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:24819] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:24851] 9 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:24851] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:24885] 10 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:24885] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:24921] 11 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:24921] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:24959] 12 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:24959] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:24999] 13 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:24999] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25043] 14 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25043] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25088] 15 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25088] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25134] 16 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25134] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25182] 17 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25182] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25232] 18 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25232] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25284] 19 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25284] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25338] 20 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25338] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25394] 21 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25394] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25452] 22 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25452] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25513] 23 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25513] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25575] 24 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25575] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25637] 25 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25637] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25699] 26 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25699] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25761] 27 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25761] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25823] 28 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25823] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25885] 29 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25885] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:25948] 30 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:25948] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26010] 31 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26010] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26072] 32 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26072] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26134] 33 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26134] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26196] 34 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26196] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26258] 35 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26258] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26321] 36 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26321] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26384] 37 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26384] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26446] 38 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26446] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26508] 39 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26508] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26570] 40 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26570] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26632] 41 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26632] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26694] 42 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26694] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26757] 43 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26757] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26819] 44 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26819] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26881] 45 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26881] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:26943] 46 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:26943] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+Open MPI tried to fork a new process via the "execve" system call but
+failed.  Open MPI checks many things before attempting to launch a
+child process, but nothing is perfect. This error may be indicative
+of another problem on the target host, or even something as silly as
+having specified a directory for your application. Your job will now
+abort.
+
+  Local host:        ct1pt-tnode008
+  Working dir:       /large/___HOME___/dssc/elena/hpc_assignment1/section1/ring
+  Application name:  ./ring.x
+  Error:             Exec format error
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun was unable to start the specified application as it encountered an
+error:
+
+Error code: 1
+Error name: (null)
+Node: ct1pt-tnode008
+
+when attempting to start process rank 0.
+--------------------------------------------------------------------------
+[ct1pt-tnode008:27005] 47 more processes have sent help message help-orte-odls-default.txt / execve error
+[ct1pt-tnode008:27005] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
