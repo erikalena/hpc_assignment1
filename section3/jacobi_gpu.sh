@@ -31,7 +31,7 @@ do
 	printf 'socket,%d%s\n' $n `mpirun --mca btl ^openib -np ${n} --map-by socket ./jacobi3D.x < input.1200 | tail -n 1 | cut -c 46- | cut --complement -c 84-122 | sed 's/ \{1,\}/,/g'` >> results_gpu.csv
 done
 
-# run the code on 12/24/36/48 processors using hyperthreading
+# run the code on 12/24/36/48 processors still on one node
 for i in {1..4}
 do 
 	((n=12*i))
