@@ -1,67 +1,89 @@
 Non blocking implementation: 
 
-I am process 40 and I have received 96 messages. My final messages have tag 400 and 400 and value 1048, -1048
-I am process 16 and I have received 96 messages. My final messages have tag 160 and 160 and value 1096, -1096
-I am process 36 and I have received 96 messages. My final messages have tag 360 and 360 and value 1056, -1056
-I am process 32 and I have received 96 messages. My final messages have tag 320 and 320 and value 1064, -1064
-I am process 44 and I have received 96 messages. My final messages have tag 440 and 440 and value 1040, -1040
-I am process 23 and I have received 96 messages. My final messages have tag 230 and 230 and value 1082, -1082
-I am process 31 and I have received 96 messages. My final messages have tag 310 and 310 and value 1066, -1066
-I am process 24 and I have received 96 messages. My final messages have tag 240 and 240 and value 1080, -1080
-I am process 28 and I have received 96 messages. My final messages have tag 280 and 280 and value 1072, -1072
-I am process 10 and I have received 96 messages. My final messages have tag 100 and 100 and value 1108, -1108
-I am process 47 and I have received 96 messages. My final messages have tag 470 and 470 and value 1034, -1034
-I am process 5 and I have received 96 messages. My final messages have tag 50 and 50 and value 1118, -1118
-52
-I am process 30 and I have received 96 messages. My final messages have tag 300 and 300 and value 1068, -1068
-I am process 42 and I have received 96 messages. My final messages have tag 420 and 420 and value 1044, -1044
-I am process 19 and I have received 96 messages. My final messages have tag 190 and 190 and value 1090, -1090
-I am process 26 and I have received 96 messages. My final messages have tag 260 and 260 and value 1076, -1076
-I am process 25 and I have received 96 messages. My final messages have tag 250 and 250 and value 1078, -1078
-I am process 45 and I have received 96 messages. My final messages have tag 450 and 450 and value 1038, -1038
-I am process 27 and I have received 96 messages. My final messages have tag 270 and 270 and value 1074, -1074
-I am process 34 and I have received 96 messages. My final messages have tag 340 and 340 and value 1060, -1060
-I am process 35 and I have received 96 messages. My final messages have tag 350 and 350 and value 1058, -1058
-I am process 39 and I have received 96 messages. My final messages have tag 390 and 390 and value 1050, -1050
-I am process 13 and I have received 96 messages. My final messages have tag 130 and 130 and value 1102, -1102
-I am process 37 and I have received 96 messages. My final messages have tag 370 and 370 and value 1054, -1054
-I am process 15 and I have received 96 messages. My final messages have tag 150 and 150 and value 1098, -1098
-I am process 17 and I have received 96 messages. My final messages have tag 170 and 170 and value 1094, -1094
 I am process 20 and I have received 96 messages. My final messages have tag 200 and 200 and value 1088, -1088
-I am process 7 and I have received 96 messages. My final messages have tag 70 and 70 and value 1114, -1114
-I am process 4 and I have received 96 messages. My final messages have tag 40 and 40 and value 1120, -1120
+I am process 17 and I have received 96 messages. My final messages have tag 170 and 170 and value 1094, -1094
+I am process 32 and I have received 96 messages. My final messages have tag 320 and 320 and value 1064, -1064
+I am process 40 and I have received 96 messages. My final messages have tag 400 and 400 and value 1048, -1048
+I am process 46 and I have received 96 messages. My final messages have tag 460 and 460 and value 1036, -1036
+I am process 36 and I have received 96 messages. My final messages have tag 360 and 360 and value 1056, -1056
+I am process 38 and I have received 96 messages. My final messages have tag 380 and 380 and value 1052, -1052
+I am process 26 and I have received 96 messages. My final messages have tag 260 and 260 and value 1076, -1076
+I am process 28 and I have received 96 messages. My final messages have tag 280 and 280 and value 1072, -1072
+I am process 30 and I have received 96 messages. My final messages have tag 300 and 300 and value 1068, -1068
+I am process 44 and I have received 96 messages. My final messages have tag 440 and 440 and value 1040, -1040
+I am process 45 and I have received 96 messages. My final messages have tag 450 and 450 and value 1038, -1038
+I am process 24 and I have received 96 messages. My final messages have tag 240 and 240 and value 1080, -1080
+I am process 33 and I have received 96 messages. My final messages have tag 330 and 330 and value 1062, -1062
+I am process 41 and I have received 96 messages. My final messages have tag 410 and 410 and value 1046, -1046
+I am process 34 and I have received 96 messages. My final messages have tag 340 and 340 and value 1060, -1060
+I am process 16 and I have received 96 messages. My final messages have tag 160 and 160 and value 1096, -1096
+I am process 22 and I have received 96 messages. My final messages have tag 220 and 220 and value 1084, -1084
+I am process 18 and I have received 96 messages. My final messages have tag 180 and 180 and value 1092, -1092
+I am process 5 and I have received 96 messages. My final messages have tag 50 and 50 and value 1118, -1118
+42
+I am process 3 and I have received 96 messages. My final messages have tag 30 and 30 and value 1122, -1122
+78
 I am process 8 and I have received 96 messages. My final messages have tag 80 and 80 and value 1112, -1112
-Global amount of time taken by non blocking implementation to run on 48 processors is: 0.000099
+70
+I am process 14 and I have received 96 messages. My final messages have tag 140 and 140 and value 1100, -1100
+I am process 7 and I have received 96 messages. My final messages have tag 70 and 70 and value 1114, -1114
+74
+I am process 13 and I have received 96 messages. My final messages have tag 130 and 130 and value 1102, -1102
+I am process 9 and I have received 96 messages. My final messages have tag 90 and 90 and value 1110, -1110
+I am process 1 and I have received 96 messages. My final messages have tag 10 and 10 and value 1126, -1126
+I am process 21 and I have received 96 messages. My final messages have tag 210 and 210 and value 1086, -1086
+I am process 11 and I have received 96 messages. My final messages have tag 110 and 110 and value 1106, -1106
+I am process 2 and I have received 96 messages. My final messages have tag 20 and 20 and value 1124, -1124
+I am process 10 and I have received 96 messages. My final messages have tag 100 and 100 and value 1108, -1108
+I am process 6 and I have received 96 messages. My final messages have tag 60 and 60 and value 1116, -1116
+I am process 15 and I have received 96 messages. My final messages have tag 150 and 150 and value 1098, -1098
+I am process 4 and I have received 96 messages. My final messages have tag 40 and 40 and value 1120, -1120
+I am process 0 and I have received 96 messages. My final messages have tag 0 and 0 and value 1128, -1128
+I am process 12 and I have received 96 messages. My final messages have tag 120 and 120 and value 1104, -1104
+I am process 19 and I have received 96 messages. My final messages have tag 190 and 190 and value 1090, -1090
+I am process 23 and I have received 96 messages. My final messages have tag 230 and 230 and value 1082, -1082
+Global amount of time taken by non blocking implementation to run on 48 processors is: 0.000077
 
 Blocking implementation: 
 
-I am process 30 and I have received 96 messages. My final messages have tag 300 and 300 and value 1068, -1068
-I am process 32 and I have received 96 messages. My final messages have tag 320 and 320 and value 1064, -1064
-I am process 40 and I have received 96 messages. My final messages have tag 400 and 400 and value 1048, -1048
-I am process 36 and I have received 96 messages. My final messages have tag 360 and 360 and value 1056, -1056
-I am process 18 and I have received 96 messages. My final messages have tag 180 and 180 and value 1092, -1092
-I am process 16 and I have received 96 messages. My final messages have tag 160 and 160 and value 1096, -1096
-I am process 20 and I have received 96 messages. My final messages have tag 200 and 200 and value 1088, -1088
 I am process 21 and I have received 96 messages. My final messages have tag 210 and 210 and value 1086, -1086
-I am process 27 and I have received 96 messages. My final messages have tag 270 and 270 and value 1074, -1074
-I am process 29 and I have received 96 messages. My final messages have tag 290 and 290 and value 1070, -1070
-I am process 26 and I have received 96 messages. My final messages have tag 260 and 260 and value 1076, -1076
-I am process 25 and I have received 96 messages. My final messages have tag 250 and 250 and value 1078, -1078
-I am process 24 and I have received 96 messages. My final messages have tag 240 and 240 and value 1080, -1080
-I am process 28 and I have received 96 messages. My final messages have tag 280 and 280 and value 1072, -1072
-I am process 31 and I have received 96 messages. My final messages have tag 310 and 310 and value 1066, -1066
-I am process 46 and I have received 96 messages. My final messages have tag 460 and 460 and value 1036, -1036
-I am process 37 and I have received 96 messages. My final messages have tag 370 and 370 and value 1054, -1054
-I am process 44 and I have received 96 messages. My final messages have tag 440 and 440 and value 1040, -1040
-I am process 41 and I have received 96 messages. My final messages have tag 410 and 410 and value 1046, -1046
+I am process 36 and I have received 96 messages. My final messages have tag 360 and 360 and value 1056, -1056
+I am process 0 and I have received 96 messages. My final messages have tag 0 and 0 and value 1128, -1128
 I am process 42 and I have received 96 messages. My final messages have tag 420 and 420 and value 1044, -1044
-I am process 38 and I have received 96 messages. My final messages have tag 380 and 380 and value 1052, -1052
-I am process 34 and I have received 96 messages. My final messages have tag 340 and 340 and value 1060, -1060
-I am process 35 and I have received 96 messages. My final messages have tag 350 and 350 and value 1058, -1058
+I am process 16 and I have received 96 messages. My final messages have tag 160 and 160 and value 1096, -1096
+I am process 29 and I have received 96 messages. My final messages have tag 290 and 290 and value 1070, -1070
+I am process 11 and I have received 96 messages. My final messages have tag 110 and 110 and value 1106, -1106
+I am process 30 and I have received 96 messages. My final messages have tag 300 and 300 and value 1068, -1068
+I am process 27 and I have received 96 messages. My final messages have tag 270 and 270 and value 1074, -1074
 I am process 33 and I have received 96 messages. My final messages have tag 330 and 330 and value 1062, -1062
-I am process 39 and I have received 96 messages. My final messages have tag 390 and 390 and value 1050, -1050
-I am process 3 and I have received 96 messages. My final messages have tag 30 and 30 and value 1122, -1122
-42
+I am process 20 and I have received 96 messages. My final messages have tag 200 and 200 and value 1088, -1088
+I am process 24 and I have received 96 messages. My final messages have tag 240 and 240 and value 1080, -1080
 I am process 45 and I have received 96 messages. My final messages have tag 450 and 450 and value 1038, -1038
 I am process 47 and I have received 96 messages. My final messages have tag 470 and 470 and value 1034, -1034
+I am process 2 and I have received 96 messages. My final messages have tag 20 and 20 and value 1124, -1124
+50
+I am process 31 and I have received 96 messages. My final messages have tag 310 and 310 and value 1066, -1066
+I am process 46 and I have received 96 messages. My final messages have tag 460 and 460 and value 1036, -1036
+I am process 8 and I have received 96 messages. My final messages have tag 80 and 80 and value 1112, -1112
+42
+I am process 38 and I have received 96 messages. My final messages have tag 380 and 380 and value 1052, -1052
+I am process 40 and I have received 96 messages. My final messages have tag 400 and 400 and value 1048, -1048
+I am process 17 and I have received 96 messages. My final messages have tag 170 and 170 and value 1094, -1094
+I am process 18 and I have received 96 messages. My final messages have tag 180 and 180 and value 1092, -1092
+I am process 22 and I have received 96 messages. My final messages have tag 220 and 220 and value 1084, -1084
+I am process 3 and I have received 96 messages. My final messages have tag 30 and 30 and value 1122, -1122
+78
+I am process 44 and I have received 96 messages. My final messages have tag 440 and 440 and value 1040, -1040
+I am process 12 and I have received 96 messages. My final messages have tag 120 and 120 and value 1104, -1104
+I am process 10 and I have received 96 messages. My final messages have tag 100 and 100 and value 1108, -1108
+I am process 6 and I have received 96 messages. My final messages have tag 60 and 60 and value 1116, -1116
+I am process 23 and I have received 96 messages. My final messages have tag 230 and 230 and value 1082, -1082
+I am process 13 and I have received 96 messages. My final messages have tag 130 and 130 and value 1102, -1102
+I am process 9 and I have received 96 messages. My final messages have tag 90 and 90 and value 1110, -1110
+I am process 7 and I have received 96 messages. My final messages have tag 70 and 70 and value 1114, -1114
+I am process 4 and I have received 96 messages. My final messages have tag 40 and 40 and value 1120, -1120
+I am process 5 and I have received 96 messages. My final messages have tag 50 and 50 and value 1118, -1118
+I am process 14 and I have received 96 messages. My final messages have tag 140 and 140 and value 1100, -1100
+I am process 1 and I have received 96 messages. My final messages have tag 10 and 10 and value 1126, -1126
+I am process 15 and I have received 96 messages. My final messages have tag 150 and 150 and value 1098, -1098
 Global amount of time taken by blocking implementation to run on 48 processors is: 0.000154

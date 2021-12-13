@@ -104,7 +104,7 @@ int main(int argc, char* argv[]) {
 				
 		if(rank == root) {
 			f = fopen("res_ring.txt", "a");
-			fprintf(f,"Global amount of time taken by non blocking implementation to run on %d processors is: %10.8f\n\n", size, total_time/niterations);
+			fprintf(f,"Global amount of time taken by non blocking implementation to run on %d processors is: %f\n\n", size, total_time/niterations);
 			fclose(f);
 		}
 		
