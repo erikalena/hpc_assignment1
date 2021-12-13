@@ -43,10 +43,10 @@ plot_times <- function(file) {
     labs(title = gsub('_', ' ', gsub('.{4}$', '', file)))
   
 
- # if(!"t.usec.comp."  %in% colnames(df1)){
-    df1$t.usec.comp. <- round(loess(t.usec. ~ X.bytes, df1)$fitted, 4)
+  if(!"t.usec.comp."  %in% colnames(df1)){
+    df1$t.usec.comp.[1:24] <- round(loess(t.usec. ~ X.bytes, df)$fitted, 4)
     fwrite(df1, paste0("csv/",file))
- # }
+  }
   return(times)
 }
 
@@ -78,10 +78,10 @@ plot_bandwidth <- function(file) {
     labs(title = gsub('_', ' ', gsub('.{4}$', '', file)))
 
   
-  # if(!"Mbytes.sec.comp."  %in% colnames(df1)){
-    df1$Mbytes.sec.comp. <- round(df1$X.bytes/(loess(t.usec. ~ X.bytes, df1)$fitted), 4)
+   if(!"Mbytes.sec.comp."  %in% colnames(df1)){
+    df1$Mbytes.sec.comp.[1:24] <- round(df$X.bytes/(loess(t.usec. ~ X.bytes, df)$fitted), 4)
     fwrite(df1, paste0("csv/",file))
-  # }
+   }
 
   return(bandwidth)
 }

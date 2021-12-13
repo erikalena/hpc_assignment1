@@ -1,20 +1,19 @@
-# read csv assignment 1 
+# read csv assignment 1, section 3
 library(ggplot2)
+
 library(gridExtra)
 library(grid)
 
 
 setwd("~/DSSC/hpc_assignment1/section3")
 
+color_df <- data.frame(color = c("#ffffff", "#bfdedd"), stringsAsFactors = FALSE)
+my_table_theme <- ttheme_default(core=list(bg_params = list(fill = color_df$color[1:2], col=NA)), colhead =list(bg_params=list(fill ="#8bb0af")))
+
 #cpu
 jacobi <- data.frame(read.csv("results.csv"))
 jacobi$min_commtime <- jacobi$mintime - jacobi$jacobimin
 jacobi$max_commtime <- jacobi$maxtime - jacobi$jacobimax
-
-color_df <- data.frame(color = c("#ffffff", "#9ee1e6"),
-                       stringsAsFactors = FALSE)
-
-my_table_theme <- ttheme_default(core=list(bg_params = list(fill = color_df$color[1:2], col=NA)), colhead =list(bg_params=list(fill ="#659194")))
 grid.table(jacobi, rows=NULL, theme = my_table_theme)
 
 
