@@ -1,6 +1,5 @@
 # read csv assignment 1, section 3
 library(ggplot2)
-
 library(gridExtra)
 library(grid)
 
@@ -10,15 +9,23 @@ setwd("~/DSSC/hpc_assignment1/section3")
 color_df <- data.frame(color = c("#ffffff", "#bfdedd"), stringsAsFactors = FALSE)
 my_table_theme <- ttheme_default(core=list(bg_params = list(fill = color_df$color[1:2], col=NA)), colhead =list(bg_params=list(fill ="#8bb0af")))
 
-#cpu
+#read csv about results obtained on cpu nodes
 jacobi <- data.frame(read.csv("results.csv"))
 jacobi$min_commtime <- jacobi$mintime - jacobi$jacobimin
 jacobi$max_commtime <- jacobi$maxtime - jacobi$jacobimax
+
 grid.table(jacobi, rows=NULL, theme = my_table_theme)
+grid.newpage()
 
+#read csv about results obtained on gpu nodes
+jacobi_gpu <- data.frame(read.csv("results_gpu.csv"))
+jacobi_gpu$min_commtime <- jacobi_gpu$mintime - jacobi_gpu$jacobimin
+jacobi_gpu$max_commtime <- jacobi_gpu$maxtime - jacobi_gpu$jacobimax
 
-#build table
+grid.table(jacobi_gpu, rows=NULL)
+grid.newpage()
 
+#build table for cpu nodes
 jacobi_res <- jacobi[,1:2]
 jacobi_res$mean_time <- (jacobi$mintime +jacobi$maxtime)/2
 jacobi_res$mean_jacobi <- (jacobi$jacobimin +jacobi$jacobimax)/2
@@ -34,7 +41,7 @@ jacobi_res$'Tc(L,N) [s]' <- c(0,jacobi_res$'C(L,N) [Mb]'[-1]/(jacobi_res$'B [MB/
 jacobi_res$'P(L,N) [MLUP/sec]' <- 1200^3/((jacobi_res$mean_jacobi + jacobi_res$comm_time)*1000000)
 
 png("jacobi_res.png", width=1000,height=480,bg = "white")
-grid.table(jacobi_res, rows=NULL)
+grid.table(jacobi_res, rows=NULL, theme = my_table_theme)
 dev.off()
 
 #gpu
@@ -44,7 +51,7 @@ jacobi_gpu$max_commtime <- jacobi_gpu$maxtime - jacobi_gpu$jacobimax
 
 grid.table(jacobi_gpu, rows=NULL)
 
-#build table
+#build table for gpu nodes
 jacobi_gpu_res <- jacobi_gpu[,1:2]
 jacobi_gpu_res$mean_time <- (jacobi_gpu$mintime +jacobi_gpu$maxtime)/2
 jacobi_gpu_res$mean_jacobi <- (jacobi_gpu$jacobimin +jacobi_gpu$jacobimax)/2
@@ -60,5 +67,5 @@ jacobi_gpu_res$'Tc(L,N) [s]' <- c(0,jacobi_res$'C(L,N) [Mb]'[-1]/(jacobi_res$'B 
 jacobi_gpu_res$'P(L,N) [MLUP/sec]' <- 1200^3/((jacobi_gpu_res$mean_jacobi + jacobi_gpu_res$comm_time)*1000000)
 
 png("jacobi_gpu_res.png", width=1000,height=480,bg = "white")
-grid.table(jacobi_gpu_res, rows=NULL)
+grid.table(jacobi_gpu_res, rows=NULL, theme = my_table_theme)
 dev.off()
