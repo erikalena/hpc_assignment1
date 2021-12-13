@@ -8,6 +8,8 @@ cd $PBS_O_WORKDIR
 #load openmpi module
 module load openmpi-4.1.1+gnu-9.3.0
 
+# compile ring.c
+mpicc ring.c -o ring.x
 
 # establish the maximum number of processor on which you want to test the code
 N=48

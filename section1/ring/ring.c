@@ -4,7 +4,7 @@ left and right directions */
 
 #include <stdio.h>
 #include <mpi.h>
-#define niterations 1000
+#define niterations 10000
 
 // initial tag for each processor to send messages
 int ltag, rtag;
@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-  MPI_Request lrequest, rrequest, request;
+  MPI_Request lrequest, rrequest;
   MPI_Status lstatus, rstatus; // status of msgs received from left and from right respectively
   MPI_Comm ring_comm;
   
