@@ -91,13 +91,13 @@ plot_nshm <- function(core, socket, node, type) {
   socket_times <- plot_times(socket)
   node_times <- plot_times(node)
   core_times + socket_times + node_times
-  ggsave(paste0( "images/times_", type, ".png"), width = 20, height = 8, dpi = 150)
+ # ggsave(paste0( "images/times_", type, ".png"), width = 20, height = 8, dpi = 150)
   
   core_bandwidth <- plot_bandwidth(core)
   socket_bandwidth <- plot_bandwidth(socket)
   node_bandwidth <- plot_bandwidth(node)
   core_bandwidth + socket_bandwidth + node_bandwidth
-  ggsave(paste0( "images/bandwidth_", type, ".png"), width = 20, height = 8, dpi = 150)
+#  ggsave(paste0( "images/bandwidth_", type, ".png"), width = 20, height = 8, dpi = 150)
   
 }
 
