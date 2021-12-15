@@ -14,7 +14,7 @@ module load openmpi-4.1.1+gnu-9.3.0
 n=24
 
 
-printf '%s,%s,%s,\n' 'Matrix' 'Topology' 'Time taken' 'Comp. time' >> 3D_matrix.csv
+printf '%s,%s,%s,%s,\n' 'Matrix' 'Topology' 'Time taken' 'Comp. time' >> 3D_matrix.csv
 
 
 mpirun -np $n --mca btl ^openib ./sum3Dmatrix.x 2400 100 100

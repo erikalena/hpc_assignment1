@@ -154,7 +154,7 @@ int main(int argc, char* argv[]) {
 			}
 				
 				//print time taken
-				fprintf(fptr,",%f,", final_time);
+				fprintf(fptr,",%f", final_time);
 				
 				//print computational time taken
 				fprintf(fptr,",%f,\n", final_comp);
