@@ -8,8 +8,6 @@
 #include <time.h>
 #include <math.h>
 
-#define niterations 1000
-
 
 void print_matrix(int z, int x, int y, double matrix[z][x][y]) {
 
@@ -156,7 +154,7 @@ int main(int argc, char* argv[]) {
 			}
 				
 				//print time taken
-				fprintf(fptr,",%f,\n", total_time/niterations);
+				fprintf(fptr,",%f,\n", total_time);
 
 			} 
 		}
