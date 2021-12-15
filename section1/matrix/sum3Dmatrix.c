@@ -106,28 +106,28 @@ int main(int argc, char* argv[]) {
 			
 					
 			// measuring time taken
-			double init = 0.0, total_time = 0.0;
+			double init = 0.0, final_time = 0.0;
+			double init_comp = 0.0, final_comp = 0.0;
 			
-			
-						
 			MPI_Barrier(new_communicator);		
 			init = MPI_Wtime();
 							
 			MPI_Scatter(M, nsnd, MPI_DOUBLE_PRECISION, M_1, nsnd, MPI_DOUBLE_PRECISION, root, new_communicator);
 			MPI_Scatter(N, nsnd, MPI_DOUBLE_PRECISION, N_1, nsnd, MPI_DOUBLE_PRECISION, root, new_communicator);
 
-			
+			init_comp = MPI_Wtime();
 			for(int k = 0; k < pz; k++) 
 			 	for(int i = 0; i < px; i++) 
 						for(int j = 0; j < py; j++) 
 							M_1[k][i][j] += N_1[k][i][j];
-		 
+			final_comp = MPI_Wtime() - init_comp;
+			
 
 		
 			MPI_Gather(M_1, nsnd, MPI_DOUBLE_PRECISION, M, nsnd, MPI_DOUBLE_PRECISION, root, new_communicator);
 			
 			MPI_Barrier(new_communicator);
-			total_time += MPI_Wtime() - init;
+			final_time = MPI_Wtime() - init;
 					 	
 		 	
 	 	
@@ -154,8 +154,10 @@ int main(int argc, char* argv[]) {
 			}
 				
 				//print time taken
-				fprintf(fptr,",%f,\n", total_time);
-
+				fprintf(fptr,",%f,", total_time);
+				
+				//print computational time taken
+				fprintf(fptr,",%f,\n", final_comp);
 			} 
 		}
 		 
