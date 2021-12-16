@@ -12,9 +12,20 @@ my_table_theme <- ttheme_default(core=list(bg_params = list(fill = color_df$colo
 
 #times to sum matrices
 times <- data.frame(read.csv("3D_matrix.csv"))
+colnames(times) <- c("Matrix dims", "Topology", "Time taken", "Comp time")
+
 grid.table(times, rows=NULL, theme = my_table_theme)
 
 #save table as png
 png("3D_matrix_results.png")
-grid.table(times, rows=NULL)
+grid.table(times, rows=NULL,theme = my_table_theme)
 dev.off()
+
+# compute theoretical times
+B <- 10000 # ~ estimated latency without the use of the cache
+lambda <- 24*0.68*(10^(-6))
+# size of matrix (2 matrices) multiplied by 8 (size of double)
+size <- 2*(2400*100*100)*8*(10^(-6))
+T <- 3*(size/B + lambda) # ~ 0.1152
+
+

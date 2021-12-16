@@ -1,8 +1,9 @@
-# read csv assignment 1 
+# read csv assignment 1, section 2
 library(ggplot2)
 library(RColorBrewer)
 library(patchwork)
 library(data.table)
+library(ggpubr)
 
 setwd("~/DSSC/hpc_assignment1/section2")
 col_legend <- brewer.pal(n=8, name="Dark2")
@@ -10,6 +11,9 @@ col_legend <- brewer.pal(n=8, name="Dark2")
 ##############
 plot_times <- function(file) {
   df1 <- data.frame(read.csv(paste0("csv/",file)))
+  if(startsWith(file, "intel"))
+    file =  substring(file, 7)
+  
   df <- df1[1:24,]
   
   model <-lm(t.usec.[1:26] ~ X.bytes[1:26], df)
@@ -40,7 +44,7 @@ plot_times <- function(file) {
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
     theme(legend.title = element_blank()) +
     scale_colour_manual(values = c("empirical" = "#2bacbd", "comm. model" = "#cf5e25", "fit model" = "#297504")) +
-    labs(title = gsub('_', ' ', gsub('.{4}$', '', file)))
+    labs(title = sub("\\_.*", "", file))
   
 
   if(!"t.usec.comp."  %in% colnames(df1)){
@@ -53,6 +57,9 @@ plot_times <- function(file) {
 
 plot_bandwidth <- function(file) {
   df1 <- data.frame(read.csv(paste0("csv/",file)))
+  if(startsWith(file, "intel"))
+    file =  substring(file, 7)
+  
   df <- df1[1:24,]
   #bandwidth
   bandwidth <- ggplot() +
@@ -70,12 +77,13 @@ plot_bandwidth <- function(file) {
     geom_line(data = df, aes(x = as.factor(X.bytes), y = X.bytes/(loess(t.usec. ~ X.bytes, df)$fitted), color="fit model", group=1)) +
     geom_point(data = df, aes(x = as.factor(X.bytes), y = X.bytes/(loess(t.usec. ~ X.bytes, df)$fitted), color="fit model", group=1)) +
     
+   # geom_line(linetype = "dashed",data = df, aes(x = as.factor(X.bytes), y = 12000, color="th. bandwidth", group=1)) +
     
     labs(x = "Message size (bytes)", y = "Bandwidth") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
     theme(legend.title = element_blank()) +
     scale_colour_manual(values = c("empirical" = "#2bacbd", "comm. model" = "#cf5e25", "fit model" = "#297504")) +
-    labs(title = gsub('_', ' ', gsub('.{4}$', '', file)))
+    labs(title = sub("\\_.*", "", file))
 
   
    if(!"Mbytes.sec.comp."  %in% colnames(df1)){
@@ -90,14 +98,18 @@ plot_nshm <- function(core, socket, node, type) {
   core_times <- plot_times(core)
   socket_times <- plot_times(socket)
   node_times <- plot_times(node)
-  core_times + socket_times + node_times
- # ggsave(paste0( "images/times_", type, ".png"), width = 20, height = 8, dpi = 150)
+  core_times + socket_times + node_times +
+  plot_annotation(title =  gsub('_', ' ', type)) &  theme(plot.title = element_text(hjust = 0.5))
+  
+  ggsave(paste0( "images/times_", type, ".png"), width = 20, height = 8, dpi = 150)
   
   core_bandwidth <- plot_bandwidth(core)
   socket_bandwidth <- plot_bandwidth(socket)
   node_bandwidth <- plot_bandwidth(node)
-  core_bandwidth + socket_bandwidth + node_bandwidth
-#  ggsave(paste0( "images/bandwidth_", type, ".png"), width = 20, height = 8, dpi = 150)
+  core_bandwidth + socket_bandwidth + node_bandwidth +
+  plot_annotation(title =  gsub('_', ' ', type)) &  theme(plot.title = element_text(hjust = 0.5))
+  
+  ggsave(paste0( "images/bandwidth_", type, ".png"), width = 20, height = 8, dpi = 150)
   
 }
 
@@ -105,12 +117,17 @@ plot_nshm <- function(core, socket, node, type) {
 plot_shm <- function(core, socket,type) {
   core_times <- plot_times(core)
   socket_times <- plot_times(socket)
-  core_times + socket_times
+  core_times + socket_times +
+  plot_annotation(title =  gsub('_', ' ', type)) &  theme(plot.title = element_text(hjust = 0.5))
+  
   ggsave(paste0( "images/times_", type, ".png"), width = 20, height = 8, dpi = 150)
   
   core_bandwidth <- plot_bandwidth(core)
   socket_bandwidth <- plot_bandwidth(socket)
-  core_bandwidth + socket_bandwidth
+  
+  core_bandwidth + socket_bandwidth +
+  plot_annotation(title =  gsub('_', ' ', type)) &  theme(plot.title = element_text(hjust = 0.5))
+  
   ggsave(paste0( "images/bandwidth_", type, ".png"), width = 20, height = 8, dpi = 150)
 }
 

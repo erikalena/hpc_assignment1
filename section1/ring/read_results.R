@@ -1,12 +1,12 @@
-# Read results obtained by ring.c
+# Read results obtained for section 1, part 1
 setwd("~/DSSC/hpc_assignment1/section1/ring")
-times <- data.frame(read.table("results.csv"))
-times <- times[-1,]
+times <- data.frame(read.csv("results.csv"))
 colnames(times) <- c("n_procs", "time_nonblocking", "time_blocking")
 
 library("ggplot2")
 
 x <- as.numeric(times$n_procs)
+y <- as.numeric(times$time_nonblocking)
 
 png("ring_results.png", width=1200, height = 800)
 
@@ -23,17 +23,13 @@ abline(v = 24, lty = 2, lwd=1.5)
 text(22, 0.0, "n_procs=24", pos = 4, srt=90)
 
 #plot theoretical model for non blocking implementation
-#y1 <- x[1:24]*2*16*10^(-3)/19900 + 0.68*(10^(-6))
-#y2 <- x[25:47]*2*16*10^(-3)/12200 + 1.23*(10^(-6))
-
-y1 <- x[1:24]*(2*2*10^(-6)/19900 + 0.68*(10^(-6)))
-y2 <- x[25:47]*2*16*10^(-3)/12200 + 1.23*(10^(-6))
+y1 <- x[1:24]*(2*2*(10^(-6))/12000 + 0.68*(10^(-6)))
+y2 <- x[25:47]*(2*2*(10^(-6))/12200 + 1.23*(10^(-6)))
 lines(x, c(y1,y2), type='l', col="#0f95a6", lty = 2,lwd=2)
 
 #plot theoretical model for blocking implementation
-y1 <- y1 + x[1:24]*0.5*16*10^(-3)/19900
-y2 <- y2 + x[25:47]*0.5*16*10^(-3)/12200 
-
+y1 <- 2*y1 
+y2 <- 2*y2 
 lines(x, c(y1,y2), type='l', col="#a30f94", lty = 2,lwd=2)
 
 legend(1, 0.00012, legend=c("Non blocking implementation", "nb. model", "Blocking implementation", "b. model"),
