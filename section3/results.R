@@ -10,12 +10,14 @@ color_df <- data.frame(color = c("#ffffff", "#bfdedd"), stringsAsFactors = FALSE
 my_table_theme <- ttheme_default(core=list(bg_params = list(fill = color_df$color[1:2], col=NA)), colhead =list(bg_params=list(fill ="#8bb0af")))
 
 #read csv about results obtained on cpu nodes
-jacobi <- data.frame(read.csv("results.csv"))
+jacobi <- data.frame(read.csv("results_cpu.csv"))
 jacobi$min_commtime <- jacobi$mintime - jacobi$jacobimin
 jacobi$max_commtime <- jacobi$maxtime - jacobi$jacobimax
 
 grid.table(jacobi, rows=NULL, theme = my_table_theme)
 grid.newpage()
+
+plot(jacobi$n_procs, jacobi$mlups, xlab="number of processes", ylab="Performance [MLUPs/sec]", type='l')
 
 #read csv about results obtained on gpu nodes
 jacobi_gpu <- data.frame(read.csv("results_gpu.csv"))
@@ -30,7 +32,7 @@ jacobi_res <- jacobi[,1:2]
 jacobi_res$mean_time <- (jacobi$mintime +jacobi$maxtime)/2
 jacobi_res$mean_jacobi <- (jacobi$jacobimin +jacobi$jacobimax)/2
 jacobi_res$comm_time <- (jacobi_res$mean_time - jacobi_res$mean_jacobi)
-jacobi_res$k <- c(0,4,6,6,4,6,6,6,6,12,12)
+jacobi_res$k <- c(0,4,6,6,4,6,6,6,6,6,6)
 jacobi_res$MLUP <- jacobi[,7]
 jacobi_res$t.usec <- c(0,0.24,0.24,0.24,0.68,0.68,0.68,1.24,1.24,1.24,1.24)
 jacobi_res$'B [MB/s]' <- c(0,18927.55,18927.55,18927.55,19967.19,19967.19,19967.19,11899.06,11899.06,11899.06,11899.06)
