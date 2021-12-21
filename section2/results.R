@@ -16,13 +16,9 @@ plot_times <- function(file) {
   
   df <- df1[1:24,]
   
-  model <-lm(t.usec.[1:26] ~ X.bytes[1:26], df)
-  lambda <-  model$coef[1]
-  B <- model$coef[2]
-  
-  print(file)
-  print(coef(model))
-  print(paste0("bandwith: ", 1/coef(model)[2]))
+  # model <-lm(t.usec.[1:26] ~ X.bytes[1:26], df1)
+  # lambda <-  model$coef[1]
+  # B <- model$coef[2]
   
   times <- ggplot() +
     # core ucx
@@ -47,10 +43,10 @@ plot_times <- function(file) {
     labs(title = sub("\\_.*", "", file))
   
 
-  if(!"t.usec.comp."  %in% colnames(df1)){
-    df1$t.usec.comp.[1:24] <- round(loess(t.usec. ~ X.bytes, df)$fitted, 4)
-    fwrite(df1, paste0("csv/",file))
-  }
+ # if(!"t.usec.comp."  %in% colnames(df1)){
+    df$t.usec.comp.[1:24] <- round(loess(t.usec. ~ X.bytes, df)$fitted, 4)
+    fwrite(df, paste0("csv/",file))
+#  }
   return(times)
 }
 
@@ -86,10 +82,10 @@ plot_bandwidth <- function(file) {
     labs(title = sub("\\_.*", "", file))
 
   
-   if(!"Mbytes.sec.comp."  %in% colnames(df1)){
-    df1$Mbytes.sec.comp.[1:24] <- round(df$X.bytes/(loess(t.usec. ~ X.bytes, df)$fitted), 4)
-    fwrite(df1, paste0("csv/",file))
-   }
+ #  if(!"Mbytes.sec.comp."  %in% colnames(df1)){
+    df$Mbytes.sec.comp.[1:24] <- round(df$X.bytes/(loess(t.usec. ~ X.bytes, df)$fitted), 4)
+    fwrite(df, paste0("csv/",file))
+ #  }
 
   return(bandwidth)
 }
@@ -169,3 +165,7 @@ plot_nshm("intel_core_tcp_gpu.csv", "intel_socket_tcp_gpu.csv", "intel_node_tcp_
 plot_shm("intel_core_shm_gpu.csv", "intel_socket_shm_gpu.csv", "shm_intel_gpu")
 
 
+## nocache
+plot_shm("nocache_core_ucx.csv", "nocache_socket_ucx.csv", "nocache_ucx_openmpi_cpu")
+
+d1 <- data.frame(read.csv(paste0("csv/","nocache_socket_ucx.csv")))

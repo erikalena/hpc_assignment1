@@ -23,7 +23,7 @@ abline(v = 24, lty = 2, lwd=1.5)
 text(22, 0.0, "n_procs=24", pos = 4, srt=90)
 
 #plot theoretical model for non blocking implementation
-y1 <- x[1:24]*(2*2*(10^(-6))/12000 + 0.68*(10^(-6)))
+y1 <- x[1:24]*(2*2*(10^(-6))/20000 + 0.68*(10^(-6)))
 y2 <- x[25:47]*(2*2*(10^(-6))/12200 + 1.23*(10^(-6)))
 lines(x, c(y1,y2), type='l', col="#0f95a6", lty = 2,lwd=2)
 
