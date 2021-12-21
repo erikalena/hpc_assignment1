@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=24
+#PBS -l nodes=2:ppn=24
 #PBS -l walltime=0:30:00
 #PBS -q dssc
 
