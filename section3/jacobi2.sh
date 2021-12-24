@@ -16,6 +16,8 @@ mpif77 -ffixed-line-length-none Jacobi_MPI_vectormode.F -o jacoby3D.x
 #printf '%s,%s,%s,%s,%s,%s,%s\n' 'map' 'n_procs' 'mintime' 'maxtime' 'jacobimin' 'jacobimax' 'mlups' >> results_weak.csv
 
 # run the code on one single core to estimate serial time
+((x=120))
+printf "%d, 0, t \n%d, 0, t\n%d, 0, t" "$x" "$x" "$x"  > input_file
 printf 'core,1%s\n' 'mpirun --mca btl ^openib -np 1 ./jacobi3D.x < input_file | tail -n 1 | cut -c 46- | cut --complement -c 84-122 |  sed 's/ \{1,\}/,/g'' >> results_weak.csv
 
 # run the code on 4/8/12 processes within the same node pinning MPI processes within same socket and across two sockets
