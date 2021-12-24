@@ -1,3 +1,4 @@
+# mpirun -n 2 -ppn 1 -env I_MPI_FABRICS ofi -genv I_MPI_OFI_PROVIDER tcp ./IMB-MPI1_intel PingPong -msglog 28
 X.bytes,X.repetitions,t.usec.,Mbytes.sec,t.usec.comp.,Mbytes.sec.comp.
 0,1000,9.02,0,8.9959,0
 1,1000,8.45,0.12,8.9972,0.1111

@@ -1,5 +1,5 @@
-# Simple makefile to compile and clean all the c codes written
-# for section 1 of assignment 1
+# Simple makefile to compile and clean the c programs 
+# written for section 1 of assignment 1
 
 CC=mpicc
 

@@ -1,3 +1,4 @@
+# mpirun -np 2 --report-bindings ./IMB-MPI1 PingPong -off_cache -1  -msglog 28
 X.bytes,X.repetitions,t.usec.,Mbytes.sec,t.usec.comp.,Mbytes.sec.comp.
 0,1000,0.21,0,0.2094,0
 1,1000,0.2,4.94,0.2097,4.7681

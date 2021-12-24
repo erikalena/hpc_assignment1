@@ -10,9 +10,16 @@ col_legend <- brewer.pal(n=8, name="Dark2")
 
 ##############
 plot_times <- function(file) {
-  df1 <- data.frame(read.csv(paste0("csv/",file)))
+  df1 <- data.frame(read.csv(paste0("csv/",file), skip=1))
+  
+  # read headers
+  txt <- file(paste0("csv/",file),"r")
+  headers <- readLines(txt,n=1)
+  
   if(startsWith(file, "intel"))
-    file =  substring(file, 7)
+    name =  substring(file, 7)
+  else 
+    name = file
   
   df <- df1[1:24,]
   
@@ -40,13 +47,15 @@ plot_times <- function(file) {
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
     theme(legend.title = element_blank()) +
     scale_colour_manual(values = c("empirical" = "#2bacbd", "comm. model" = "#cf5e25", "fit model" = "#297504")) +
-    labs(title = sub("\\_.*", "", file))
+    labs(title = sub("\\_.*", "", name))
   
 
- # if(!"t.usec.comp."  %in% colnames(df1)){
+  if(!"t.usec.comp."  %in% colnames(df)){
     df$t.usec.comp.[1:24] <- round(loess(t.usec. ~ X.bytes, df)$fitted, 4)
-    fwrite(df, paste0("csv/",file))
-#  }
+    write(headers,file=paste0("csv/",file))
+    fwrite(df, paste0("csv/",file),append=TRUE, col.names = TRUE)
+  }
+  
   return(times)
 }
 
@@ -54,7 +63,13 @@ plot_times <- function(file) {
 plot_bandwidth <- function(file) {
   df1 <- data.frame(read.csv(paste0("csv/",file)))
   if(startsWith(file, "intel"))
-    file =  substring(file, 7)
+    name =  substring(file, 7)
+  else 
+    name = file
+  
+  # read headers
+  txt <- file(paste0("csv/",file),"r")
+  headers <- readLines(txt,n=1)
   
   df <- df1[1:24,]
   #bandwidth
@@ -79,13 +94,14 @@ plot_bandwidth <- function(file) {
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
     theme(legend.title = element_blank()) +
     scale_colour_manual(values = c("empirical" = "#2bacbd", "comm. model" = "#cf5e25", "fit model" = "#297504")) +
-    labs(title = sub("\\_.*", "", file))
+    labs(title = sub("\\_.*", "", name))
 
   
- #  if(!"Mbytes.sec.comp."  %in% colnames(df1)){
+   if(!"Mbytes.sec.comp."  %in% colnames(df)){
     df$Mbytes.sec.comp.[1:24] <- round(df$X.bytes/(loess(t.usec. ~ X.bytes, df)$fitted), 4)
-    fwrite(df, paste0("csv/",file))
- #  }
+    write(headers,file=paste0("csv/",file))
+    fwrite(df, paste0("csv/",file),append=TRUE, col.names = TRUE)
+   }
 
   return(bandwidth)
 }
@@ -169,3 +185,7 @@ plot_shm("intel_core_shm_gpu.csv", "intel_socket_shm_gpu.csv", "shm_intel_gpu")
 plot_shm("nocache_core_ucx.csv", "nocache_socket_ucx.csv", "nocache_ucx_openmpi_cpu")
 
 d1 <- data.frame(read.csv(paste0("csv/","nocache_socket_ucx.csv")))
+
+
+
+

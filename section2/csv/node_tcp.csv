@@ -1,3 +1,4 @@
+# mpirun -np 2 -mca pml ob1 --mca btl self,tcp  --map-by node --report-bindings ./IMB-MPI1 PingPong -msglog 28
 X.bytes,X.repetitions,t.usec.,Mbytes.sec,t.usec.comp.,Mbytes.sec.comp.
 0,1000,16.19,0,17.8662,0
 1,1000,16.27,0.06,17.8694,0.056

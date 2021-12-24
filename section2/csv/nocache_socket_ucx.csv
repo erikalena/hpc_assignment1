@@ -1,3 +1,4 @@
+# mpirun -np 2 --map-by socket --report-bindings ./IMB-MPI1 PingPong -off_cache -1 -msglog 28
 X.bytes,X.repetitions,t.usec.,Mbytes.sec,t.usec.comp.,Mbytes.sec.comp.
 0,1000,0.41,0,0.6032,0
 1,1000,0.42,2.38,0.6038,1.6562

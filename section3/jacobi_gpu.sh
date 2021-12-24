@@ -12,7 +12,7 @@ module load openmpi-4.1.1+gnu-9.3.0
 # compile
 mpif77 -ffixed-line-length-none Jacobi_MPI_vectormode.F -o jacoby3D.x
 
-printf '%s,%s,%s,%s,%s,%s,%s\n' 'map' 'n_procs' 'maxtime' 'maxtime' 'jacobimin' 'jacobimax' 'mlups' >> results_gpu.csv
+printf '%s,%s,%s,%s,%s,%s,%s\n' 'map' 'n_procs' 'mintime' 'maxtime' 'jacobimin' 'jacobimax' 'mlups' >> results_gpu.csv
 
 # run the code on one single core to estimate serial time
 printf 'core,1%s\n' `mpirun --mca btl ^openib -np 1 ./jacobi3D.x < input.1200 | tail -n 1 | cut -c 46- | cut --complement -c 84-122 |  sed 's/ \{1,\}/,/g'` >> results_gpu.csv

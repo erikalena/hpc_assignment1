@@ -1,5 +1,5 @@
-/* This program implements a stream of messages in
-left and right directions */
+/* This program implements a stream of messages between processes 
+arranged in a ring */
 
 
 #include <stdio.h>
@@ -11,7 +11,7 @@ int ltag, rtag;
 int rank, lsend, rsend,	lrecv, rrecv;
 
 void update_var(MPI_Status rstatus, MPI_Status lstatus) {
-	// At each iteration each processor adds its rank to the received message if it comes from left 
+  // At each iteration each processor adds its rank to the received message if it comes from left 
   // and substracts its rank to the received message if it comes from right 
 	rsend = lrecv + rank;
 	lsend = rrecv - rank;
@@ -61,7 +61,7 @@ int main(int argc, char* argv[]) {
 		for(int j = 0; j < niterations; j++) {
 				
 			// initialize variables related to msg passing 
-			// what I should initially send and rank the tag I should initially expect
+			// each process initially send its rank 
 			lsend = rank, rsend = -rank;
 			// initial tag for each processor to send messages
 			ltag = 10*rank;
@@ -74,6 +74,7 @@ int main(int argc, char* argv[]) {
 			MPI_Barrier(MPI_COMM_WORLD);
 			init = MPI_Wtime();
 			
+			//until a message with initial tag is received
 			do { 
 			
 					// send to right and receive from left

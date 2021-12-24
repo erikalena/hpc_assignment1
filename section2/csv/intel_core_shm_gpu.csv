@@ -1,3 +1,4 @@
+# mpirun -n 2 -genv I_MPI_PIN_PROCESSOR_LIST=0,2 -env I_MPI_FABRICS shm -genv I_MPI_OFI_PROVIDER shm
 X.bytes,X.repetitions,t.usec.,Mbytes.sec,t.usec.comp.,Mbytes.sec.comp.
 0,1000,0.27,0,0.314,0
 1,1000,0.27,3.64,0.3142,3.1827
