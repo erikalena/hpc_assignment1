@@ -8,7 +8,7 @@ is provided to compile both the programs.
 ```
 make
 ```
-Otherwise to manually compile each file:
+Otherwise, to manually compile each file:
 
 ```
 mpicc ring/ring.c -o ring/ring.x
