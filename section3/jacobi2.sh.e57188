@@ -1,0 +1,32 @@
+loading dependency gnu/9.3.0
+loading dependency numactl/2.0.13
+loading dependency hwloc/2.2.0
+At line 62 of file Jacobi_MPI_vectormode.F (unit = 5, file = 'stdin')
+Fortran runtime error: Bad integer for item 1 in list input
+
+Error termination. Backtrace:
+#0  0x1512fda03898 in read_integer
+	at ../.././libgfortran/io/list_read.c:1099
+#1  0x1512fda068d1 in list_formatted_read_scalar
+	at ../.././libgfortran/io/list_read.c:2171
+#2  0x1512fda0ca65 in wrap_scalar_transfer
+	at ../.././libgfortran/io/transfer.c:2369
+#3  0x1512fda0ca65 in wrap_scalar_transfer
+	at ../.././libgfortran/io/transfer.c:2346
+#4  0x40486d in ???
+#5  0x405684 in ???
+#6  0x1512fcab0504 in ???
+#7  0x401438 in ???
+#8  0xffffffffffffffff in ???
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[64139,1],0]
+  Exit code:    2
+--------------------------------------------------------------------------
+rm: cannot remove ‘jacobi2.sh.*’: No such file or directory
