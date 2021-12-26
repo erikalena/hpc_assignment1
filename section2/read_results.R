@@ -22,13 +22,8 @@ plot_times <- function(file) {
     name = file
   
   df <- df1[1:24,]
-  
-  # model <-lm(t.usec.[1:26] ~ X.bytes[1:26], df1)
-  # lambda <-  model$coef[1]
-  # B <- model$coef[2]
-  
+
   times <- ggplot() +
-    # core ucx
     geom_line(data = df, aes(x = as.factor(X.bytes), y = t.usec., color="empirical", group = 1)) +
     geom_point(data = df, aes(x = as.factor(X.bytes), y = t.usec., color="empirical", group = 1))  + 
 
@@ -61,7 +56,7 @@ plot_times <- function(file) {
 
 
 plot_bandwidth <- function(file) {
-  df1 <- data.frame(read.csv(paste0("csv/",file)))
+  df1 <- data.frame(read.csv(paste0("csv/",file),skip=1))
   if(startsWith(file, "intel"))
     name =  substring(file, 7)
   else 
@@ -72,9 +67,9 @@ plot_bandwidth <- function(file) {
   headers <- readLines(txt,n=1)
   
   df <- df1[1:24,]
+  
   #bandwidth
   bandwidth <- ggplot() +
-    # core ucx
     geom_line(data = df, aes(x = as.factor(X.bytes), group = 2, y = Mbytes.sec, color="empirical")) +
     geom_point(data = df, aes(x = as.factor(X.bytes), group = 2, y = Mbytes.sec, color="empirical"))  +
 
@@ -183,8 +178,8 @@ plot_shm("intel_core_shm_gpu.csv", "intel_socket_shm_gpu.csv", "shm_intel_gpu")
 
 ## nocache
 plot_shm("nocache_core_ucx.csv", "nocache_socket_ucx.csv", "nocache_ucx_openmpi_cpu")
-
 d1 <- data.frame(read.csv(paste0("csv/","nocache_socket_ucx.csv")))
+
 
 
 
