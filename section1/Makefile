@@ -21,5 +21,5 @@ all: ring/ring.x matrix/sum3Dmatrix.x
 .PHONY: clean
 
 clean:
-	rm *.x
+	rm ring/*.x matrix/*.x
 
