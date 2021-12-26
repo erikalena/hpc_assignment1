@@ -8,6 +8,20 @@ is provided to compile both the programs.
 ```
 make
 ```
+Otherwise to manually compile each file:
+
+```
+mpicc ring/ring.c -o ring/ring.x
+mpicc matrix/sum3Dmatrix.x -o matrix/sum3Dmatrix.c
+```
+
+To execute the code:
+
+```
+#specify the number of processors
+mpirun --mca btl ^openib -np (nprocs) ./ring.x
+mpirun -np (nprocs) --mca btl ^openib ./sum3Dmatrix.x 2400 100 100
+```
 
 To get rid of executables:
 
